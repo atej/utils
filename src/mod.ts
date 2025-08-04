@@ -1,2 +1,2 @@
-export { Equal } from './types/equal.ts'
-export { Expect } from './types/expect.ts'
+export type { Equal } from './types/equal.ts'
+export type { Expect } from './types/expect.ts'
