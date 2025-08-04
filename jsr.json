@@ -1,0 +1,10 @@
+{
+  "name": "@atej/utils",
+  "version": "0.1.0",
+  "license": "MIT",
+  "exports": "./src/mod.ts",
+  "publish": {
+    "include": ["LICENSE", "README.md", "src/**/*.ts"],
+    "exclude": [".cursor", "src/tests"]
+  }
+}
