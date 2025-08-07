@@ -5,6 +5,13 @@
   "exports": "./src/mod.ts",
   "publish": {
     "include": ["LICENSE", "README.md", "src/**/*.ts"],
-    "exclude": [".cursor", ".github", "prettier.config.js", "src/**/*.test.ts"]
+    "exclude": [
+      ".cursor",
+      ".github",
+      ".husky",
+      "lint-staged.config.js",
+      "prettier.config.js",
+      "src/**/*.test.ts"
+    ]
   }
 }
