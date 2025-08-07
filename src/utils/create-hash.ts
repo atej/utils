@@ -31,7 +31,7 @@ const DEFAULT_CREATE_HASH_OPTIONS = {
  * @param options - The options to use for computing the hash @default @see {@link DEFAULT_CREATE_HASH_OPTIONS}
  * @returns The hash of the message
  */
-export function createHash(message: BinaryLike, options?: Partial<CreateHashOptions>) {
+export function createHash(message: BinaryLike, options?: Partial<CreateHashOptions>): string {
   const mergedOptions = { ...DEFAULT_CREATE_HASH_OPTIONS, ...options }
   const { algorithm, encoding } = mergedOptions
   return nodeCreateHash(algorithm).update(message).digest(encoding)

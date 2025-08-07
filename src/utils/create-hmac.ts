@@ -37,7 +37,7 @@ export function createHmac(
   message: BinaryLike,
   key: BinaryLike | KeyObject,
   options?: Partial<CreateHmacOptions>,
-) {
+): string {
   const mergedOptions = { ...DEFAULT_CREATE_HMAC_OPTIONS, ...options }
   const { algorithm, encoding } = mergedOptions
   return nodeCreateHmac(algorithm, key).update(message).digest(encoding)
