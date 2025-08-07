@@ -1,3 +1,5 @@
+export { createHash, type CreateHashOptions } from './utils/create-hash'
+export { createHmac, type CreateHmacOptions } from './utils/create-hmac'
 export { numberToWords, type NumberToWordsCurrencyOptions } from './utils/number-to-words'
 export { parseNumber } from './utils/parse-number'
 
