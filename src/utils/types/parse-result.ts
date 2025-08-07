@@ -1,4 +1,4 @@
-type Result<T> =
+export type ParseResult<T> =
   | {
       data: T
       success: true
