@@ -1,5 +1,5 @@
 export default {
   '*': 'prettier --cache --ignore-unknown --write',
 
-  '*.ts': [() => 'tsc --noEmit', () => 'vitest'],
+  '*.ts': [() => 'tsc --noEmit', () => 'vitest run'],
 }

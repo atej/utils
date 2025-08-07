@@ -1,3 +1,4 @@
+export { numberToWords, type NumberToWordsCurrencyOptions } from './utils/number-to-words'
 export { parseNumber } from './utils/parse-number'
 
 export type { Equal } from './types/equal'
