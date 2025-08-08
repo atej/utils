@@ -1,5 +1,14 @@
 import { joinTruthy } from './join-truthy'
 
+/**
+ * An address object.
+ *
+ * @property street - The street address.
+ * @property city - The city.
+ * @property region - The state/region.
+ * @property postalCode - The postal code.
+ * @property country - The country.
+ */
 export type Address = {
   street?: string | null
   city?: string | null
@@ -16,7 +25,14 @@ const DEFAULT_FORMAT_ADDRESS_OPTIONS: FormatAddressOptions = {
   multiLine: false,
 }
 
-export function formatAddress(address: Address, options?: FormatAddressOptions) {
+/**
+ * Format an address object into a string.
+ *
+ * @param address - The address object to format.
+ * @param options - The options for formatting the address.
+ * @returns The formatted address string.
+ */
+export function formatAddress(address: Address, options?: FormatAddressOptions): string {
   const { multiLine } = { ...DEFAULT_FORMAT_ADDRESS_OPTIONS, ...options }
 
   const { street, city, region, postalCode, country } = address
