@@ -13,9 +13,12 @@ export { createHmac, type CreateHmacOptions } from './utils/crypto/create-hmac'
 
 // Cloudflare
 export {
-  getCloudflareRequestGeoData,
-  type CloudflareRequestGeoData,
-} from './utils/cloudflare/get-cloudflare-request-geo-data'
+  getCfRequestGeoData,
+  type CfContinentCode,
+  type CfCountryCode,
+  type CfCountryCodeWithTor,
+  type CfRequestGeoData,
+} from './utils/cloudflare/get-cf-request-geo-data'
 
 // Types
 export type { Equal } from './types/equal'
