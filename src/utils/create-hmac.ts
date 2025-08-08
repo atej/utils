@@ -27,7 +27,7 @@ const DEFAULT_CREATE_HMAC_OPTIONS = {
 } satisfies CreateHmacOptions
 
 /**
- * Creates a HMAC of the given message using the specified algorithm and encoding
+ * Creates a HMAC of the given message using the specified key, algorithm and encoding
  * @param message - The message to compute the HMAC for
  * @param key - The key to use for the HMAC
  * @param options - The options to use for computing the HMAC @default @see {@link DEFAULT_CREATE_HMAC_OPTIONS}
