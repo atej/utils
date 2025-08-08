@@ -1,18 +1,21 @@
 // Parsers
-export { parseNumber } from './utils/parse-number'
+export { parseNumber } from './utils/parsers/parse-number'
 
 // Formatters
-export { numberToWords, type NumberToWordsCurrencyOptions } from './utils/number-to-words'
+export {
+  numberToWords,
+  type NumberToWordsCurrencyOptions,
+} from './utils/formatters/number-to-words'
 
 // Cryptography
-export { createHash, type CreateHashOptions } from './utils/create-hash'
-export { createHmac, type CreateHmacOptions } from './utils/create-hmac'
+export { createHash, type CreateHashOptions } from './utils/crypto/create-hash'
+export { createHmac, type CreateHmacOptions } from './utils/crypto/create-hmac'
 
 // Cloudflare
 export {
   getCloudflareRequestGeoData,
   type CloudflareRequestGeoData,
-} from './utils/get-cloudflare-request-geo-data'
+} from './utils/cloudflare/get-cloudflare-request-geo-data'
 
 // Types
 export type { Equal } from './types/equal'
