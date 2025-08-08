@@ -2,6 +2,8 @@
 export { parseNumber } from './utils/parsers/parse-number'
 
 // Formatters
+export { formatAddress, type Address } from './utils/formatters/format-address'
+export { joinTruthy } from './utils/formatters/join-truthy'
 export {
   numberToWords,
   type NumberToWordsCurrencyOptions,
