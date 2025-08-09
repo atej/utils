@@ -1,7 +1,7 @@
 import { build, keep, omit, parse, type IOptions } from 'search-params'
-import type { JsonObject } from '../../types/json-object'
-import type { Result } from '../../types/result'
-import { json as jsonUtil } from '../json/json'
+import type { JsonObject } from '../../types/json-object.ts'
+import type { Result } from '../../types/result.ts'
+import { json as jsonUtil } from '../json/json.ts'
 
 const json = jsonUtil({ compression: true })
 

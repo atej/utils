@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { createHmac, type CreateHmacOptions } from './create-hmac'
+import { createHmac, type CreateHmacOptions } from './create-hmac.ts'
 
 describe('createHmac', () => {
   it('should create HMAC with default options (sha256, hex)', () => {

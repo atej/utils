@@ -1,4 +1,4 @@
-import { joinTruthy } from './join-truthy'
+import { joinTruthy } from './join-truthy.ts'
 
 /**
  * An address object.

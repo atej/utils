@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { createHash, type CreateHashOptions } from './create-hash'
+import { createHash, type CreateHashOptions } from './create-hash.ts'
 
 describe('createHash', () => {
   it('should create hash with default options (sha256, hex)', () => {

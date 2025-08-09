@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { parseNumber } from './parse-number'
+import { parseNumber } from './parse-number.ts'
 
 test('parses a number', () => {
   const result = parseNumber(123.456)

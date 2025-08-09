@@ -3,7 +3,7 @@ import {
   DEFAULT_CONVERTER_OPTIONS,
   DEFAULT_TO_WORDS_OPTIONS,
   numberToWords,
-} from './number-to-words'
+} from './number-to-words.ts'
 
 describe('numberToWords', () => {
   describe('basic number conversion', () => {

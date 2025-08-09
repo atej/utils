@@ -1,4 +1,4 @@
-import type { Result } from '../../types/result'
+import type { Result } from '../../types/result.ts'
 
 /**
  * Attempt to execute a function and return a result.
