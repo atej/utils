@@ -1,0 +1,27 @@
+{
+  "tasks": {
+    "prepare": "is-ci || husky",
+    "format": "prettier . --ignore-unknown --write --cache --check",
+    "typecheck": "tsc",
+    "test": "vitest",
+    "check": "deno task format && deno task typecheck && deno task test",
+    "precommit": "lint-staged"
+  },
+  "imports": {
+    "lz-string": "npm:lz-string",
+    "search-params": "npm:search-params",
+    "@cloudflare/workers-types": "npm:@cloudflare/workers-types",
+    "@total-typescript/ts-reset": "npm:@total-typescript/ts-reset",
+    "@types/node": "npm:@types/node",
+    "@vitest/coverage-v8": "npm:@vitest/coverage-v8",
+    "@vitest/ui": "npm:@vitest/ui",
+    "husky": "npm:husky",
+    "is-ci": "npm:is-ci",
+    "lint-staged": "npm:lint-staged",
+    "prettier": "npm:prettier",
+    "prettier-plugin-organize-imports": "npm:prettier-plugin-organize-imports",
+    "type-fest": "npm:type-fest",
+    "vitest": "npm:vitest"
+  },
+  "nodeModulesDir": "auto"
+}
