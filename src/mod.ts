@@ -21,6 +21,13 @@ export {
   STATUS,
   SUCCESS_STATUS,
 } from './utils/web/http-status-codes'
+export {
+  buildQuerystring,
+  keepSearchParams,
+  omitSearchParams,
+  parseQuerystring,
+  type SearchParamsOptions,
+} from './utils/web/search-params'
 
 // Cloudflare
 export {
@@ -31,7 +38,12 @@ export {
   type CfRequestGeoData,
 } from './utils/cloudflare/get-cf-request-geo-data'
 
+// Error handling
+export { attempt, attemptAsync } from './utils/errors/attempt'
+
 // Types
 export type { Equal } from './types/equal'
 export type { Expect } from './types/expect'
+export type { JsonObject } from './types/json-object'
 export type { ParseResult } from './types/parse-result'
+export type { Result } from './types/result'

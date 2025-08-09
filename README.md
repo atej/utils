@@ -19,3 +19,7 @@ Import a type utility:
 ```typescript
 import type { Equal } from '@atej/utils'
 ```
+
+## Docs
+
+[View on JSR](https://jsr.io/@atej/utils/doc)

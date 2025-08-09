@@ -8,6 +8,10 @@
     "check": "npm run format && npm run typecheck && vitest run",
     "precommit": "lint-staged"
   },
+  "dependencies": {
+    "lz-string": "^1.5.0",
+    "search-params": "^4.0.1"
+  },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250807.0",
     "@total-typescript/ts-reset": "^0.6.1",
