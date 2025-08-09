@@ -166,7 +166,7 @@ export function parseQuerystring(
  * @param options - Options for how values should be stringified and parsed.
  * @returns A querystring with the specified parameters omitted.
  */
-export function omitSearchParams(
+export function omitFromQuerystring(
   querystring: string,
   paramsToOmit: string[],
   options?: SearchParamsOptions,
@@ -183,7 +183,7 @@ export function omitSearchParams(
  * @param options - Options for how values should be stringified and parsed.
  * @returns A querystring with only the specified parameters.
  */
-export function keepSearchParams(
+export function keepInQuerystring(
   querystring: string,
   paramsToKeep: string[],
   options?: SearchParamsOptions,
