@@ -1,4 +1,24 @@
 {
+  "name": "@atej/utils",
+  "version": "0.7.0",
+  "license": "MIT",
+  "exports": "./src/mod.ts",
+  "nodeModulesDir": "auto",
+  "publish": {
+    "include": [
+      "LICENSE",
+      "README.md",
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      ".cursor",
+      ".github",
+      ".husky",
+      "lint-staged.config.js",
+      "prettier.config.js",
+      "src/**/*.test.ts"
+    ]
+  },
   "tasks": {
     "prepare": "is-ci || husky",
     "format": "prettier . --ignore-unknown --write --cache --check",
@@ -22,6 +42,5 @@
     "prettier-plugin-organize-imports": "npm:prettier-plugin-organize-imports",
     "type-fest": "npm:type-fest",
     "vitest": "npm:vitest"
-  },
-  "nodeModulesDir": "auto"
+  }
 }
