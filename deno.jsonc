@@ -21,7 +21,7 @@
   },
   "tasks": {
     "prepare": "is-ci || husky",
-    "format": "prettier . --ignore-unknown --write --cache --check",
+    "format": "deno fmt",
     "typecheck": "tsc",
     "test": "vitest",
     "check": "deno task format && deno task typecheck && deno task test",
@@ -38,9 +38,14 @@
     "husky": "npm:husky@^9.1.7",
     "is-ci": "npm:is-ci@^4.1.0",
     "lint-staged": "npm:lint-staged@^16.1.4",
-    "prettier": "npm:prettier@^3.6.2",
-    "prettier-plugin-organize-imports": "npm:prettier-plugin-organize-imports@^4.2.0",
     "type-fest": "npm:type-fest@^4.41.0",
     "vitest": "npm:vitest@^3.2.4"
+  },
+  "fmt": {
+    "lineWidth": 80,
+    "indentWidth": 2,
+    "semiColons": false,
+    "singleQuote": true,
+    "include": ["src/"]
   }
 }
