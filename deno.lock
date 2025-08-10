@@ -2,7 +2,7 @@
   "version": "5",
   "specifiers": {
     "jsr:@remeda/remeda@^2.30.0": "2.30.0",
-    "npm:@cloudflare/workers-types@^4.20250807.0": "4.20250809.0",
+    "npm:@cloudflare/workers-types@^4.20250810.0": "4.20250810.0",
     "npm:@total-typescript/ts-reset@~0.6.1": "0.6.1",
     "npm:@types/node@^24.2.0": "24.2.1",
     "npm:@vitest/coverage-v8@^3.2.4": "3.2.4_vitest@3.2.4__@types+node@24.2.1__@vitest+ui@3.2.4___vitest@3.2.4___@types+node@24.2.1__vite@7.1.1___@types+node@24.2.1___picomatch@4.0.3_@types+node@24.2.1_@vitest+ui@3.2.4__vitest@3.2.4___@types+node@24.2.1___@vitest+ui@3.2.4___vite@7.1.1____@types+node@24.2.1____picomatch@4.0.3__@types+node@24.2.1",
@@ -19,7 +19,10 @@
   },
   "jsr": {
     "@remeda/remeda@2.30.0": {
-      "integrity": "e33f675109a5f291228b52c45ebf5aaee5401a801373f2a79f9321f6e2fbc8f8"
+      "integrity": "e33f675109a5f291228b52c45ebf5aaee5401a801373f2a79f9321f6e2fbc8f8",
+      "dependencies": [
+        "npm:type-fest"
+      ]
     }
   },
   "npm": {
@@ -53,8 +56,8 @@
     "@bcoe/v8-coverage@1.0.2": {
       "integrity": "sha512-6zABk/ECA/QYSCQ1NGiVwwbQerUCZ+TQbp64Q3AgmfNvurHH0j8TtXa1qbShXA6qqkpAj4V5W8pP6mLe1mcMqA=="
     },
-    "@cloudflare/workers-types@4.20250809.0": {
-      "integrity": "sha512-MAG8S0aL+/WT52/XaqXCb6qc7XyfuYqmhwnpyLsx+RUkMZJxkhpJqaOny3Wa4IlWQfpgtQXktogmEoxxCpUmfA=="
+    "@cloudflare/workers-types@4.20250810.0": {
+      "integrity": "sha512-GAJcKMrlWrrgfpFkYAc9AYiyPM1sMfY0gzrNA7T+J7kVh82hdIWXaz7bykc+B/kgDRteO7RBKfwVEU0rB/hk2Q=="
     },
     "@esbuild/aix-ppc64@0.25.8": {
       "integrity": "sha512-urAvrUedIqEiFR3FYSLTWQgLu5tb+m0qZw0NBEasUeo6wuqatkMDaRT+1uABiGXEu5vqgPd7FGE1BhsAIy9QVA==",
@@ -1184,7 +1187,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@remeda/remeda@^2.30.0",
-      "npm:@cloudflare/workers-types@^4.20250807.0",
+      "npm:@cloudflare/workers-types@^4.20250810.0",
       "npm:@total-typescript/ts-reset@~0.6.1",
       "npm:@types/node@^24.2.0",
       "npm:@vitest/coverage-v8@^3.2.4",

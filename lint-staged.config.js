@@ -1,4 +1,4 @@
 export default {
   '*': 'deno fmt',
-  '*.ts': [() => 'deno lint', () => 'vitest run'],
+  '*.{ts,tsx}': [() => 'deno lint', () => 'deno check', () => 'vitest run'],
 }

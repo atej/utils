@@ -1,6 +1,6 @@
 import LZString from 'lz-string'
 import type { Result } from '../../types/result.ts'
-import { attempt } from '../errors/attempt.ts'
+import { attempt } from '../functions/attempt.ts'
 
 type JSONOptions = { compression?: boolean }
 type JsonStringifyParameters = Parameters<typeof JSON.stringify>

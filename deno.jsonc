@@ -18,15 +18,16 @@
     "prepare": "is-ci || husky",
     "format": "deno fmt",
     "lint": "deno lint",
+    "typecheck": "deno check",
     "test": "vitest",
-    "check": "deno fmt && deno lint && vitest run",
+    "check": "deno fmt && deno lint && deno check && vitest run",
     "precommit": "lint-staged"
   },
   "imports": {
     "@remeda/remeda": "jsr:@remeda/remeda@^2.30.0",
     "lz-string": "npm:lz-string@^1.5.0",
     "search-params": "npm:search-params@^4.0.1",
-    "@cloudflare/workers-types": "npm:@cloudflare/workers-types@^4.20250807.0",
+    "@cloudflare/workers-types": "npm:@cloudflare/workers-types@^4.20250810.0",
     "@total-typescript/ts-reset": "npm:@total-typescript/ts-reset@^0.6.1",
     "@types/node": "npm:@types/node@^24.2.0",
     "@vitest/coverage-v8": "npm:@vitest/coverage-v8@^3.2.4",
@@ -36,6 +37,11 @@
     "lint-staged": "npm:lint-staged@^16.1.4",
     "type-fest": "npm:type-fest@^4.41.0",
     "vitest": "npm:vitest@^3.2.4"
+  },
+  "compilerOptions": {
+    "verbatimModuleSyntax": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true
   },
   "fmt": {
     "lineWidth": 100,

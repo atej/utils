@@ -5,17 +5,17 @@ import type {
 import type { Simplify } from 'type-fest'
 
 /**
- * An ISO 3166-1 Alpha 2 country code or `T1` for TOR connections.
- */
-export type CfCountryCodeWithTor = Simplify<
-  NonNullable<IncomingRequestCfPropertiesGeographicInformation['country']>
->
-
-/**
  * A two-letter continent code.
  */
 export type CfContinentCode = Simplify<
   NonNullable<IncomingRequestCfPropertiesGeographicInformation['continent']>
+>
+
+/**
+ * An ISO 3166-1 Alpha 2 country code or `T1` for TOR connections.
+ */
+export type CfCountryCodeWithTor = Simplify<
+  NonNullable<IncomingRequestCfPropertiesGeographicInformation['country']>
 >
 
 /**
