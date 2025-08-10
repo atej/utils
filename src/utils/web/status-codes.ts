@@ -1,5 +1,5 @@
 /**
- * A subset of commonly used HTTP status codes.
+ * A subset of commonly used HTTP status codes for success.
  *
  * @see [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
  */
@@ -56,7 +56,7 @@ export const SUCCESS_STATUS = {
 } as const
 
 /**
- * A subset of commonly used HTTP status codes.
+ * A subset of commonly used HTTP status codes for redirects.
  *
  * @see [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
  */
@@ -104,7 +104,7 @@ export const REDIRECT_STATUS = {
 } as const
 
 /**
- * A subset of commonly used HTTP status codes.
+ * A subset of commonly used HTTP status codes for client errors.
  *
  * @see [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
  */
@@ -169,7 +169,7 @@ export const CLIENT_ERROR_STATUS = {
 } as const
 
 /**
- * A subset of commonly used HTTP status codes.
+ * A subset of commonly used HTTP status codes for server errors.
  *
  * @see [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
  */

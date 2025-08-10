@@ -1,6 +1,6 @@
 import type { JsonObject as JsonObjectFromTypeFest } from 'type-fest'
 
 /**
- * A JSON object.
+ * A type representing a JSON object.
  */
 export type JsonObject = JsonObjectFromTypeFest
