@@ -466,10 +466,10 @@ function convertCurrency(
 }
 
 /**
- * Converts a number to words in a given locale (includin)
- * @param number - The number to convert
- * @param options - The options for the conversion
- * @returns The number in words
+ * Converts a number to words in a given locale (including decimals and currency).
+ * @param number - The number to convert.
+ * @param options - The options for the conversion.
+ * @returns The number in words.
  */
 export function numberToWords(
   number: number,
