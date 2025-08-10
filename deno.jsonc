@@ -1,6 +1,6 @@
 {
   "name": "@atej/utils",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "license": "MIT",
   "exports": "./src/mod.ts",
   "nodeModulesDir": "auto",
@@ -24,7 +24,6 @@
     "precommit": "lint-staged"
   },
   "imports": {
-    "@remeda/remeda": "jsr:@remeda/remeda@^2.30.0",
     "lz-string": "npm:lz-string@^1.5.0",
     "search-params": "npm:search-params@^4.0.1",
     "@cloudflare/workers-types": "npm:@cloudflare/workers-types@^4.20250810.0",
