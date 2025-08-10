@@ -1,8 +1,8 @@
 import {
   type BinaryLike,
   type BinaryToTextEncoding,
-  KeyObject,
   createHmac as nodeCreateHmac,
+  type KeyObject,
 } from 'node:crypto'
 
 /**

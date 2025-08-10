@@ -1,5 +1,5 @@
 export default {
-  '*': 'prettier --cache --ignore-unknown --write',
+  '*': 'deno fmt',
 
-  '*.ts': [() => 'tsc --noEmit', () => 'vitest run'],
+  '*.ts': [() => 'deno lint', () => 'vitest run'],
 }

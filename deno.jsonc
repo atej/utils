@@ -5,11 +5,7 @@
   "exports": "./src/mod.ts",
   "nodeModulesDir": "auto",
   "publish": {
-    "include": [
-      "LICENSE",
-      "README.md",
-      "src/**/*.ts"
-    ],
+    "include": ["LICENSE", "README.md", "src/**/*.ts"],
     "exclude": [
       ".cursor",
       ".github",
@@ -22,9 +18,9 @@
   "tasks": {
     "prepare": "is-ci || husky",
     "format": "deno fmt",
-    "typecheck": "tsc",
+    "lint": "deno lint",
     "test": "vitest",
-    "check": "deno task format && deno task typecheck && deno task test",
+    "check": "deno fmt && deno lint && vitest run",
     "precommit": "lint-staged"
   },
   "imports": {

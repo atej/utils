@@ -252,10 +252,9 @@ export const DEFAULT_TO_WORDS_OPTIONS = {
 } satisfies NumberToWordsOptions
 
 function getLocale(localeCode: string): NumberToWordsLocaleConfig {
-  const locale =
-    localeCode in LOCALES
-      ? LOCALES[localeCode as LocaleCode]
-      : LOCALES[DEFAULT_TO_WORDS_OPTIONS.localeCode]
+  const locale = localeCode in LOCALES
+    ? LOCALES[localeCode as LocaleCode]
+    : LOCALES[DEFAULT_TO_WORDS_OPTIONS.localeCode]
   return locale
 }
 
@@ -286,7 +285,10 @@ function convertInternal(
     })
     if (exactMatch) {
       const value = Array.isArray(exactMatch.value) ? exactMatch.value[+trailing] : exactMatch.value
-      return [value ?? (Array.isArray(exactMatch.value) ? exactMatch.value[0] : exactMatch.value)]
+      return [
+        value ??
+          (Array.isArray(exactMatch.value) ? exactMatch.value[0] : exactMatch.value),
+      ]
     }
   }
 
@@ -342,7 +344,10 @@ function convertInternal(
   return words
 }
 
-function convertNumber(number: number, locale: NumberToWordsLocaleConfig): string[] {
+function convertNumber(
+  number: number,
+  locale: NumberToWordsLocaleConfig,
+): string[] {
   const isNegativeNumber = number < 0
   if (isNegativeNumber) {
     number = Math.abs(number)
@@ -406,9 +411,9 @@ function convertCurrency(
   } else if (currencyOptions.plural) {
     words.push(currencyOptions.plural)
   }
-  const ignoreZero =
-    isNumberZero(number) &&
-    (options.ignoreZeroCurrency || (locale.ignoreZeroInDecimals && number !== 0))
+  const ignoreZero = isNumberZero(number) &&
+    (options.ignoreZeroCurrency ||
+      (locale.ignoreZeroInDecimals && number !== 0))
 
   if (ignoreZero) {
     words = []
@@ -420,8 +425,7 @@ function convertCurrency(
     if (!ignoreZero) {
       wordsWithDecimal.push(locale.texts.and)
     }
-    const decimalPart =
-      Number(split[1]) *
+    const decimalPart = Number(split[1]) *
       (!locale.decimalLengthWordMapping ? Math.pow(10, 2 - (split[1]?.length ?? 0)) : 1)
     wordsWithDecimal.push(...convertInternal(decimalPart, locale))
     const decimalLengthWord = locale.decimalLengthWordMapping?.[split[1]?.length ?? 0]
@@ -442,7 +446,12 @@ function convertCurrency(
   if (!isEmpty && isNegativeNumber) {
     words.unshift(locale.texts.minus)
   }
-  if (!isEmpty && locale.texts.only && !options.doNotAddOnly && !locale.onlyInFront) {
+  if (
+    !isEmpty &&
+    locale.texts.only &&
+    !options.doNotAddOnly &&
+    !locale.onlyInFront
+  ) {
     wordsWithDecimal.push(locale.texts.only)
   }
   if (wordsWithDecimal.length) {
@@ -462,7 +471,10 @@ function convertCurrency(
  * @param options - The options for the conversion
  * @returns The number in words
  */
-export function numberToWords(number: number, options: NumberToWordsOptions = {}): string {
+export function numberToWords(
+  number: number,
+  options: NumberToWordsOptions = {},
+): string {
   const mergedOptions = { ...DEFAULT_TO_WORDS_OPTIONS, ...options }
   const localeCode = mergedOptions.localeCode
   const locale = getLocale(localeCode)

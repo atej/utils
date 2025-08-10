@@ -1,3 +1,4 @@
+import { Buffer } from 'node:buffer'
 import { describe, expect, it } from 'vitest'
 import { createHash, type CreateHashOptions } from './create-hash.ts'
 
@@ -7,7 +8,9 @@ describe('createHash', () => {
     const hash = createHash(message)
 
     // sha256 hash of "hello world" in hex
-    expect(hash).toBe('b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9')
+    expect(hash).toBe(
+      'b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9',
+    )
   })
 
   it('should create hash with custom algorithm', () => {
@@ -38,14 +41,30 @@ describe('createHash', () => {
     const message = Buffer.from('hello world', 'utf8')
     const hash = createHash(message)
 
-    expect(hash).toBe('b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9')
+    expect(hash).toBe(
+      'b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9',
+    )
   })
 
   it('should handle Uint8Array input', () => {
-    const message = new Uint8Array([104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100]) // "hello world"
+    const message = new Uint8Array([
+      104,
+      101,
+      108,
+      108,
+      111,
+      32,
+      119,
+      111,
+      114,
+      108,
+      100,
+    ]) // "hello world"
     const hash = createHash(message)
 
-    expect(hash).toBe('b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9')
+    expect(hash).toBe(
+      'b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9',
+    )
   })
 
   it('should handle empty string', () => {
@@ -53,14 +72,18 @@ describe('createHash', () => {
     const hash = createHash(message)
 
     // sha256 hash of empty string in hex
-    expect(hash).toBe('e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855')
+    expect(hash).toBe(
+      'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',
+    )
   })
 
   it('should handle empty Buffer', () => {
     const message = Buffer.alloc(0)
     const hash = createHash(message)
 
-    expect(hash).toBe('e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855')
+    expect(hash).toBe(
+      'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',
+    )
   })
 
   it('should handle unicode characters', () => {
@@ -68,7 +91,9 @@ describe('createHash', () => {
     const hash = createHash(message)
 
     // sha256 hash of "hello 世界" in hex
-    expect(hash).toBe('2e2625f7c51b4a2c75274ab307e86411f57aab475f4a4078df53533f7771bc7f')
+    expect(hash).toBe(
+      '2e2625f7c51b4a2c75274ab307e86411f57aab475f4a4078df53533f7771bc7f',
+    )
   })
 
   it('should handle large input', () => {
@@ -92,7 +117,11 @@ describe('createHash', () => {
 
   it('should work with different encodings', () => {
     const message = 'test'
-    const encodings: Array<CreateHashOptions['encoding']> = ['hex', 'base64', 'base64url']
+    const encodings: Array<CreateHashOptions['encoding']> = [
+      'hex',
+      'base64',
+      'base64url',
+    ]
 
     encodings.forEach((encoding) => {
       const hash = createHash(message, { encoding })

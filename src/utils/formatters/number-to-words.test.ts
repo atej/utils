@@ -35,13 +35,17 @@ describe('numberToWords', () => {
     it('converts thousands', () => {
       expect(numberToWords(1000)).toBe('One Thousand')
       expect(numberToWords(1500)).toBe('One Thousand Five Hundred')
-      expect(numberToWords(9999)).toBe('Nine Thousand Nine Hundred Ninety Nine')
+      expect(numberToWords(9999)).toBe(
+        'Nine Thousand Nine Hundred Ninety Nine',
+      )
     })
 
     it('converts lakhs (en-IN)', () => {
       expect(numberToWords(100000)).toBe('One Lakh')
       expect(numberToWords(150000)).toBe('One Lakh Fifty Thousand')
-      expect(numberToWords(999999)).toBe('Nine Lakh Ninety Nine Thousand Nine Hundred Ninety Nine')
+      expect(numberToWords(999999)).toBe(
+        'Nine Lakh Ninety Nine Thousand Nine Hundred Ninety Nine',
+      )
     })
 
     it('converts crores (en-IN)', () => {
@@ -53,25 +57,33 @@ describe('numberToWords', () => {
     })
 
     it('converts millions (en-US)', () => {
-      expect(numberToWords(1000000, { localeCode: 'en-US' })).toBe('One Million')
+      expect(numberToWords(1000000, { localeCode: 'en-US' })).toBe(
+        'One Million',
+      )
       expect(numberToWords(1500000, { localeCode: 'en-US' })).toBe(
         'One Million Five Hundred Thousand',
       )
     })
 
     it('converts billions (en-US)', () => {
-      expect(numberToWords(1000000000, { localeCode: 'en-US' })).toBe('One Billion')
+      expect(numberToWords(1000000000, { localeCode: 'en-US' })).toBe(
+        'One Billion',
+      )
       expect(numberToWords(1500000000, { localeCode: 'en-US' })).toBe(
         'One Billion Five Hundred Million',
       )
     })
 
     it('converts trillions (en-US)', () => {
-      expect(numberToWords(1000000000000, { localeCode: 'en-US' })).toBe('One Trillion')
+      expect(numberToWords(1000000000000, { localeCode: 'en-US' })).toBe(
+        'One Trillion',
+      )
     })
 
     it('converts quadrillions (en-US)', () => {
-      expect(numberToWords(1000000000000000, { localeCode: 'en-US' })).toBe('One Quadrillion')
+      expect(numberToWords(1000000000000000, { localeCode: 'en-US' })).toBe(
+        'One Quadrillion',
+      )
     })
   })
 
@@ -96,29 +108,46 @@ describe('numberToWords', () => {
     })
 
     it('handles ignoreDecimal option', () => {
-      expect(numberToWords(1.5, { converterOptions: { ignoreDecimal: true } })).toBe('One')
-      expect(numberToWords(10.25, { converterOptions: { ignoreDecimal: true } })).toBe('Ten')
+      expect(
+        numberToWords(1.5, { converterOptions: { ignoreDecimal: true } }),
+      ).toBe('One')
+      expect(
+        numberToWords(10.25, { converterOptions: { ignoreDecimal: true } }),
+      ).toBe('Ten')
     })
   })
 
   describe('currency conversion', () => {
     it('converts currency (en-IN)', () => {
-      expect(numberToWords(1, { converterOptions: { currency: true } })).toBe('One Rupee Only')
-      expect(numberToWords(2, { converterOptions: { currency: true } })).toBe('Two Rupees Only')
+      expect(numberToWords(1, { converterOptions: { currency: true } })).toBe(
+        'One Rupee Only',
+      )
+      expect(numberToWords(2, { converterOptions: { currency: true } })).toBe(
+        'Two Rupees Only',
+      )
       expect(numberToWords(1.5, { converterOptions: { currency: true } })).toBe(
         'One Rupee And Fifty Paise Only',
       )
     })
 
     it('converts currency (en-US)', () => {
-      expect(numberToWords(1, { localeCode: 'en-US', converterOptions: { currency: true } })).toBe(
-        'One Dollar Only',
-      )
-      expect(numberToWords(2, { localeCode: 'en-US', converterOptions: { currency: true } })).toBe(
-        'Two Dollars Only',
-      )
       expect(
-        numberToWords(1.5, { localeCode: 'en-US', converterOptions: { currency: true } }),
+        numberToWords(1, {
+          localeCode: 'en-US',
+          converterOptions: { currency: true },
+        }),
+      ).toBe('One Dollar Only')
+      expect(
+        numberToWords(2, {
+          localeCode: 'en-US',
+          converterOptions: { currency: true },
+        }),
+      ).toBe('Two Dollars Only')
+      expect(
+        numberToWords(1.5, {
+          localeCode: 'en-US',
+          converterOptions: { currency: true },
+        }),
       ).toBe('One Dollar And Fifty Cents Only')
     })
 
@@ -127,23 +156,32 @@ describe('numberToWords', () => {
         'Zero Rupees And Fifty Paise Only',
       )
       expect(
-        numberToWords(0.5, { localeCode: 'en-US', converterOptions: { currency: true } }),
+        numberToWords(0.5, {
+          localeCode: 'en-US',
+          converterOptions: { currency: true },
+        }),
       ).toBe('Zero Dollars And Fifty Cents Only')
     })
 
     it('handles zero currency with ignoreZeroCurrency', () => {
       expect(
-        numberToWords(0.5, { converterOptions: { currency: true, ignoreZeroCurrency: true } }),
+        numberToWords(0.5, {
+          converterOptions: { currency: true, ignoreZeroCurrency: true },
+        }),
       ).toBe('Fifty Paise Only')
     })
 
     it('handles doNotAddOnly option', () => {
-      expect(numberToWords(1, { converterOptions: { currency: true, doNotAddOnly: true } })).toBe(
-        'One Rupee',
-      )
-      expect(numberToWords(1.5, { converterOptions: { currency: true, doNotAddOnly: true } })).toBe(
-        'One Rupee And Fifty Paise',
-      )
+      expect(
+        numberToWords(1, {
+          converterOptions: { currency: true, doNotAddOnly: true },
+        }),
+      ).toBe('One Rupee')
+      expect(
+        numberToWords(1.5, {
+          converterOptions: { currency: true, doNotAddOnly: true },
+        }),
+      ).toBe('One Rupee And Fifty Paise')
     })
 
     it('handles custom currency options', () => {
@@ -160,10 +198,14 @@ describe('numberToWords', () => {
         },
       }
       expect(
-        numberToWords(1, { converterOptions: { currency: true, currencyOptions: customCurrency } }),
+        numberToWords(1, {
+          converterOptions: { currency: true, currencyOptions: customCurrency },
+        }),
       ).toBe('One Euro Only')
       expect(
-        numberToWords(2, { converterOptions: { currency: true, currencyOptions: customCurrency } }),
+        numberToWords(2, {
+          converterOptions: { currency: true, currencyOptions: customCurrency },
+        }),
       ).toBe('Two Euros Only')
       expect(
         numberToWords(1.5, {
@@ -185,12 +227,16 @@ describe('numberToWords', () => {
     })
 
     it('handles zero with currency', () => {
-      expect(numberToWords(0, { converterOptions: { currency: true } })).toBe('Zero Rupees Only')
+      expect(numberToWords(0, { converterOptions: { currency: true } })).toBe(
+        'Zero Rupees Only',
+      )
     })
 
     it('handles zero with currency and ignoreZeroCurrency', () => {
       expect(
-        numberToWords(0, { converterOptions: { currency: true, ignoreZeroCurrency: true } }),
+        numberToWords(0, {
+          converterOptions: { currency: true, ignoreZeroCurrency: true },
+        }),
       ).toBe('')
     })
   })
@@ -198,12 +244,18 @@ describe('numberToWords', () => {
   describe('error handling', () => {
     it('throws error for invalid numbers', () => {
       expect(() => numberToWords(NaN)).toThrow('Invalid Number "NaN"')
-      expect(() => numberToWords(Infinity)).toThrow('Invalid Number "Infinity"')
-      expect(() => numberToWords(-Infinity)).toThrow('Invalid Number "-Infinity"')
+      expect(() => numberToWords(Infinity)).toThrow(
+        'Invalid Number "Infinity"',
+      )
+      expect(() => numberToWords(-Infinity)).toThrow(
+        'Invalid Number "-Infinity"',
+      )
     })
 
     it('does not throw error for unknown locale', () => {
+      // deno-lint-ignore no-explicit-any
       expect(() => numberToWords(1, { localeCode: 'invalid' as any })).not.toThrow()
+      // deno-lint-ignore no-explicit-any
       expect(numberToWords(1, { localeCode: 'invalid' as any })).toBe('One')
     })
   })
@@ -238,43 +290,57 @@ describe('numberToWords', () => {
     })
 
     it('switches to en-US locale', () => {
-      expect(numberToWords(1000000, { localeCode: 'en-US' })).toBe('One Million')
+      expect(numberToWords(1000000, { localeCode: 'en-US' })).toBe(
+        'One Million',
+      )
     })
   })
 
   describe('complex scenarios', () => {
     it('handles complex decimal currency', () => {
-      expect(numberToWords(1234.56, { converterOptions: { currency: true } })).toBe(
+      expect(
+        numberToWords(1234.56, { converterOptions: { currency: true } }),
+      ).toBe(
         'One Thousand Two Hundred Thirty Four Rupees And Fifty Six Paise Only',
       )
     })
 
     it('handles complex decimal currency (en-US)', () => {
       expect(
-        numberToWords(1234.56, { localeCode: 'en-US', converterOptions: { currency: true } }),
-      ).toBe('One Thousand Two Hundred Thirty Four Dollars And Fifty Six Cents Only')
+        numberToWords(1234.56, {
+          localeCode: 'en-US',
+          converterOptions: { currency: true },
+        }),
+      ).toBe(
+        'One Thousand Two Hundred Thirty Four Dollars And Fifty Six Cents Only',
+      )
     })
 
     it('handles negative currency', () => {
-      expect(numberToWords(-1234.56, { converterOptions: { currency: true } })).toBe(
+      expect(
+        numberToWords(-1234.56, { converterOptions: { currency: true } }),
+      ).toBe(
         'Minus One Thousand Two Hundred Thirty Four Rupees And Fifty Six Paise Only',
       )
     })
 
     it('handles very small decimals', () => {
-      expect(numberToWords(0.01, { converterOptions: { currency: true } })).toBe(
-        'Zero Rupees And One Paisa Only',
-      )
       expect(
-        numberToWords(0.01, { localeCode: 'en-US', converterOptions: { currency: true } }),
+        numberToWords(0.01, { converterOptions: { currency: true } }),
+      ).toBe('Zero Rupees And One Paisa Only')
+      expect(
+        numberToWords(0.01, {
+          localeCode: 'en-US',
+          converterOptions: { currency: true },
+        }),
       ).toBe('Zero Dollars And One Cent Only')
     })
 
     it('handles numbers just below 1', () => {
       expect(numberToWords(0.99)).toBe('Zero Point Ninety Nine')
-      expect(numberToWords(0.99, { converterOptions: { currency: true } })).toBe(
-        'Zero Rupees And Ninety Nine Paise Only',
-      )
+      expect(
+        numberToWords(0.99, { converterOptions: { currency: true } }),
+      ).toBe('Zero Rupees And Ninety Nine Paise Only')
     })
 
     it('handles edge case with decimalLengthWordMapping and empty words', () => {
@@ -300,7 +366,9 @@ describe('numberToWords', () => {
 
     it('handles currency without onlyInFront option', () => {
       // Test the default currency behavior
-      const result = numberToWords(1.5, { converterOptions: { currency: true } })
+      const result = numberToWords(1.5, {
+        converterOptions: { currency: true },
+      })
       expect(result).toBe('One Rupee And Fifty Paise Only')
     })
   })
@@ -315,25 +383,38 @@ describe('numberToWords', () => {
 
   describe('plural and singular forms', () => {
     it('handles singular forms correctly', () => {
-      expect(numberToWords(1, { converterOptions: { currency: true } })).toBe('One Rupee Only')
-      expect(numberToWords(1, { localeCode: 'en-US', converterOptions: { currency: true } })).toBe(
-        'One Dollar Only',
+      expect(numberToWords(1, { converterOptions: { currency: true } })).toBe(
+        'One Rupee Only',
       )
+      expect(
+        numberToWords(1, {
+          localeCode: 'en-US',
+          converterOptions: { currency: true },
+        }),
+      ).toBe('One Dollar Only')
     })
 
     it('handles plural forms correctly', () => {
-      expect(numberToWords(2, { converterOptions: { currency: true } })).toBe('Two Rupees Only')
-      expect(numberToWords(2, { localeCode: 'en-US', converterOptions: { currency: true } })).toBe(
-        'Two Dollars Only',
+      expect(numberToWords(2, { converterOptions: { currency: true } })).toBe(
+        'Two Rupees Only',
       )
+      expect(
+        numberToWords(2, {
+          localeCode: 'en-US',
+          converterOptions: { currency: true },
+        }),
+      ).toBe('Two Dollars Only')
     })
 
     it('handles fractional unit singular forms', () => {
-      expect(numberToWords(1.01, { converterOptions: { currency: true } })).toBe(
-        'One Rupee And One Paisa Only',
-      )
       expect(
-        numberToWords(1.01, { localeCode: 'en-US', converterOptions: { currency: true } }),
+        numberToWords(1.01, { converterOptions: { currency: true } }),
+      ).toBe('One Rupee And One Paisa Only')
+      expect(
+        numberToWords(1.01, {
+          localeCode: 'en-US',
+          converterOptions: { currency: true },
+        }),
       ).toBe('One Dollar And One Cent Only')
     })
 
@@ -342,7 +423,10 @@ describe('numberToWords', () => {
         'One Rupee And Fifty Paise Only',
       )
       expect(
-        numberToWords(1.5, { localeCode: 'en-US', converterOptions: { currency: true } }),
+        numberToWords(1.5, {
+          localeCode: 'en-US',
+          converterOptions: { currency: true },
+        }),
       ).toBe('One Dollar And Fifty Cents Only')
     })
   })
