@@ -3,11 +3,20 @@ export { parseNumber } from './utils/parsers/parse-number.ts'
 
 // Formatters
 export { type Address, formatAddress } from './utils/formatters/format-address.ts'
-export { joinTruthy } from './utils/formatters/join-truthy.ts'
 export {
-  numberToWords,
+  formatNumberToWords,
   type NumberToWordsCurrencyOptions,
-} from './utils/formatters/number-to-words.ts'
+} from './utils/formatters/format-number-to-words.ts'
+
+// Arrays
+export { allPass } from './utils/arrays/all-pass.ts'
+export { difference } from './utils/arrays/difference.ts'
+export { joinTruthy } from './utils/arrays/join-truthy.ts'
+export { join } from './utils/arrays/join.ts'
+export { unique } from './utils/arrays/unique.ts'
+
+// Guards
+export { isIncludedIn } from './utils/guards/is-included-in.ts'
 
 // Cryptography
 export { createHash, type CreateHashOptions } from './utils/crypto/create-hash.ts'
@@ -38,8 +47,9 @@ export {
   getCfRequestGeoData,
 } from './utils/cloudflare/get-cf-request-geo-data.ts'
 
-// Error handling
-export { attempt, attemptAsync } from './utils/errors/attempt.ts'
+// Functions
+export { attemptAsync } from './utils/functions/attempt-async.ts'
+export { attempt } from './utils/functions/attempt.ts'
 
 // Types
 export type { Equal } from './types/equal.ts'

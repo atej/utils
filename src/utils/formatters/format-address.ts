@@ -1,4 +1,4 @@
-import { joinTruthy } from './join-truthy.ts'
+import { joinTruthy } from '../arrays/join-truthy.ts'
 
 /**
  * An address object.
@@ -31,6 +31,13 @@ const DEFAULT_FORMAT_ADDRESS_OPTIONS: FormatAddressOptions = {
  * @param address - The address object to format.
  * @param options - The options for formatting the address.
  * @returns The formatted address string.
+ * @signature
+ *    formatAddress(address, options)
+ * @example
+ *    formatAddress({ street: '123 Main St', city: 'Anytown', region: 'CA', postalCode: '12345', country: 'USA' })
+ *    // => '123 Main St, Anytown, CA 12345, USA'
+ * @dataFirst
+ * @category Formatter
  */
 export function formatAddress(address: Address, options?: FormatAddressOptions): string {
   const { multiLine } = { ...DEFAULT_FORMAT_ADDRESS_OPTIONS, ...options }

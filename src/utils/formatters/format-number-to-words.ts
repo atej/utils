@@ -470,8 +470,10 @@ function convertCurrency(
  * @param number - The number to convert.
  * @param options - The options for the conversion.
  * @returns The number in words.
+ *
+ * @category Formatter
  */
-export function numberToWords(
+export function formatNumberToWords(
   number: number,
   options: NumberToWordsOptions = {},
 ): string {

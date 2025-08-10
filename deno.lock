@@ -1,6 +1,7 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@remeda/remeda@^2.30.0": "2.30.0",
     "npm:@cloudflare/workers-types@^4.20250807.0": "4.20250809.0",
     "npm:@total-typescript/ts-reset@~0.6.1": "0.6.1",
     "npm:@types/node@^24.2.0": "24.2.1",
@@ -15,6 +16,11 @@
     "npm:type-fest@^4.41.0": "4.41.0",
     "npm:vitest@3.2.4": "3.2.4_@types+node@24.2.1_@vitest+ui@3.2.4__vitest@3.2.4__@types+node@24.2.1_vite@7.1.1__@types+node@24.2.1__picomatch@4.0.3",
     "npm:vitest@^3.2.4": "3.2.4_@types+node@24.2.1_@vitest+ui@3.2.4__vitest@3.2.4__@types+node@24.2.1_vite@7.1.1__@types+node@24.2.1__picomatch@4.0.3"
+  },
+  "jsr": {
+    "@remeda/remeda@2.30.0": {
+      "integrity": "e33f675109a5f291228b52c45ebf5aaee5401a801373f2a79f9321f6e2fbc8f8"
+    }
   },
   "npm": {
     "@ampproject/remapping@2.3.0": {
@@ -1177,6 +1183,7 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@remeda/remeda@^2.30.0",
       "npm:@cloudflare/workers-types@^4.20250807.0",
       "npm:@total-typescript/ts-reset@~0.6.1",
       "npm:@types/node@^24.2.0",
