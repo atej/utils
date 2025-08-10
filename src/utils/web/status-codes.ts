@@ -221,19 +221,39 @@ export const SERVER_ERROR_STATUS = {
  * @see [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
  */
 export const STATUS = {
-  // 2xx Success
+  /**
+   * A subset of commonly used HTTP status codes for success.
+   */
   SUCCESS: SUCCESS_STATUS,
+  /**
+   * A subset of commonly used HTTP status codes for success.
+   */
   '✅': SUCCESS_STATUS,
 
-  // 3xx Redirects
+  /**
+   * A subset of commonly used HTTP status codes for redirects.
+   */
   REDIRECT: REDIRECT_STATUS,
+  /**
+   * A subset of commonly used HTTP status codes for redirects.
+   */
   '↪️': REDIRECT_STATUS,
 
-  // 4xx Client Errors
+  /**
+   * A subset of commonly used HTTP status codes for client errors.
+   */
   CLIENT_ERROR: CLIENT_ERROR_STATUS,
+  /**
+   * A subset of commonly used HTTP status codes for client errors.
+   */
   '❌': CLIENT_ERROR_STATUS,
 
-  // 5xx Server Errors
+  /**
+   * A subset of commonly used HTTP status codes for server errors.
+   */
   SERVER_ERROR: SERVER_ERROR_STATUS,
+  /**
+   * A subset of commonly used HTTP status codes for server errors.
+   */
   '💥': SERVER_ERROR_STATUS,
 } as const
