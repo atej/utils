@@ -2,7 +2,7 @@
 export { parseNumber } from './utils/parsers/parse-number.ts'
 
 // Formatters
-export { formatAddress, type Address } from './utils/formatters/format-address.ts'
+export { type Address, formatAddress } from './utils/formatters/format-address.ts'
 export { joinTruthy } from './utils/formatters/join-truthy.ts'
 export {
   numberToWords,
@@ -31,11 +31,11 @@ export {
 
 // Cloudflare
 export {
-  getCfRequestGeoData,
   type CfContinentCode,
   type CfCountryCode,
   type CfCountryCodeWithTor,
   type CfRequestGeoData,
+  getCfRequestGeoData,
 } from './utils/cloudflare/get-cf-request-geo-data.ts'
 
 // Error handling

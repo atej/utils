@@ -1,4 +1,4 @@
-import { build, keep, omit, parse, type IOptions } from 'search-params'
+import { build, type IOptions, keep, omit, parse } from 'search-params'
 import type { JsonObject } from '../../types/json-object.ts'
 import type { Result } from '../../types/result.ts'
 import { json as jsonUtil } from '../json/json.ts'
@@ -85,8 +85,7 @@ export function buildQuerystring(
       if (newValue.length > 0) {
         transformedEntries.push([key, newValue])
       }
-    }
-    // transform objects
+    } // transform objects
     else if (typeof value === 'object' && value !== null) {
       const { data: stringified, error } = json.stringify(value)
       if (error) {
@@ -95,8 +94,7 @@ export function buildQuerystring(
         objectEntry[1].push(key)
         transformedEntries.push([key, stringified])
       }
-    }
-    // other values pass through
+    } // other values pass through
     else {
       transformedEntries.push([key, value])
     }
@@ -106,7 +104,7 @@ export function buildQuerystring(
 
   // finally, filter out all `null`, `undefined`, and empty array values
   const finalEntries = transformedEntries.filter(([, value]) =>
-    Array.isArray(value) ? value.length : value !== null && value !== undefined,
+    Array.isArray(value) ? value.length : value !== null && value !== undefined
   )
 
   const finalParams = Object.fromEntries(finalEntries)

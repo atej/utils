@@ -34,7 +34,9 @@ export function json(options?: JSONOptions): {
           },
           (error) =>
             new JsonError(
-              `Failed to serialize to JSON string and compress: ${error instanceof Error ? error.message : String(error)}`,
+              `Failed to serialize to JSON string and compress: ${
+                error instanceof Error ? error.message : String(error)
+              }`,
               'stringify',
               error,
               params[0],
@@ -51,7 +53,9 @@ export function json(options?: JSONOptions): {
           },
           (error) =>
             new JsonError(
-              `Failed to parse compressed JSON string: ${error instanceof Error ? error.message : String(error)}`,
+              `Failed to parse compressed JSON string: ${
+                error instanceof Error ? error.message : String(error)
+              }`,
               'parse',
               error,
               params[0],
@@ -67,7 +71,9 @@ export function json(options?: JSONOptions): {
           () => JSON.stringify(...params),
           (error) =>
             new JsonError(
-              `Failed to serialize to JSON string: ${error instanceof Error ? error.message : String(error)}`,
+              `Failed to serialize to JSON string: ${
+                error instanceof Error ? error.message : String(error)
+              }`,
               'stringify',
               error,
               params[0],
@@ -79,7 +85,9 @@ export function json(options?: JSONOptions): {
           () => JSON.parse(...params),
           (error) =>
             new JsonError(
-              `Failed to parse JSON string: ${error instanceof Error ? error.message : String(error)}`,
+              `Failed to parse JSON string: ${
+                error instanceof Error ? error.message : String(error)
+              }`,
               'parse',
               error,
               params[0],
