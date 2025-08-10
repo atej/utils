@@ -1,4 +1,4 @@
-import { join } from './join.ts'
+import { join } from '@remeda/remeda'
 
 type JoinableItem = bigint | boolean | number | string | null | undefined
 
