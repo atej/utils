@@ -11,7 +11,6 @@
       ".github",
       ".husky",
       "lint-staged.config.js",
-      "prettier.config.js",
       "src/**/*.test.ts"
     ]
   },
