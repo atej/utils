@@ -3,6 +3,7 @@ export { joinTruthy } from './utils/arrays/join-truthy.ts'
 
 // Functions
 export { attemptAsync } from './utils/functions/attempt-async.ts'
+export { attemptFetch, type FetchResult } from './utils/functions/attempt-fetch.ts'
 export { attempt } from './utils/functions/attempt.ts'
 
 // Parsers

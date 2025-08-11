@@ -1,6 +1,6 @@
 {
   "name": "@atej/utils",
-  "version": "0.8.2",
+  "version": "0.9.0",
   "license": "MIT",
   "exports": "./src/mod.ts",
   "nodeModulesDir": "auto",
