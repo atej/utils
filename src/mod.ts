@@ -12,9 +12,9 @@ export { parseNumber } from './utils/parsers/parse-number.ts'
 // Formatters
 export { type Address, formatAddress } from './utils/formatters/format-address.ts'
 export {
-  formatNumberToWords,
-  type NumberToWordsCurrencyOptions,
-} from './utils/formatters/format-number-to-words.ts'
+  formatNumberInWords,
+  type NumberInWordsCurrencyOptions,
+} from './utils/formatters/format-number-in-words.ts'
 
 // Web
 export {

@@ -18,7 +18,7 @@
 /**
  * Currency formatting options
  */
-export type NumberToWordsCurrencyOptions = {
+export type NumberInWordsCurrencyOptions = {
   /**
    * The name of the currency @example 'Rupee'
    */
@@ -58,7 +58,7 @@ export type NumberToWordsCurrencyOptions = {
   }
 }
 
-type NumberToWordsConverterOptions = {
+type NumberInWordsConverterOptions = {
   /**
    * Whether to convert the number to words in currency format
    * @default false
@@ -82,16 +82,16 @@ type NumberToWordsConverterOptions = {
   /**
    * Options for the currency. Applicable only when `currency` is `true`, overwrites the currency options of the locale config
    */
-  currencyOptions?: NumberToWordsCurrencyOptions
+  currencyOptions?: NumberInWordsCurrencyOptions
 }
 
-type NumberToWordsOptions = {
+type NumberInWordsOptions = {
   /**
    * The locale code to use for the conversion
    * @default 'en-IN'
    */
   localeCode?: 'en-IN' | 'en-US'
-  converterOptions?: NumberToWordsConverterOptions
+  converterOptions?: NumberInWordsConverterOptions
 }
 
 type NumberWordMap = {
@@ -100,8 +100,8 @@ type NumberWordMap = {
   singularValue?: string
 }
 
-type NumberToWordsLocaleConfig = {
-  currency: NumberToWordsCurrencyOptions
+type NumberInWordsLocaleConfig = {
+  currency: NumberInWordsCurrencyOptions
   texts: {
     and: string
     minus: string
@@ -124,7 +124,7 @@ type NumberToWordsLocaleConfig = {
 
 type LocaleCode = 'en-IN' | 'en-US'
 
-const LOCALES: Record<LocaleCode, NumberToWordsLocaleConfig> = {
+const LOCALES: Record<LocaleCode, NumberInWordsLocaleConfig> = {
   'en-IN': {
     currency: {
       name: 'Rupee',
@@ -244,14 +244,14 @@ export const DEFAULT_CONVERTER_OPTIONS = {
   ignoreDecimal: false,
   ignoreZeroCurrency: false,
   doNotAddOnly: false,
-} satisfies NumberToWordsConverterOptions
+} satisfies NumberInWordsConverterOptions
 
 export const DEFAULT_TO_WORDS_OPTIONS = {
   localeCode: 'en-IN',
   converterOptions: DEFAULT_CONVERTER_OPTIONS,
-} satisfies NumberToWordsOptions
+} satisfies NumberInWordsOptions
 
-function getLocale(localeCode: string): NumberToWordsLocaleConfig {
+function getLocale(localeCode: string): NumberInWordsLocaleConfig {
   const locale = localeCode in LOCALES
     ? LOCALES[localeCode as LocaleCode]
     : LOCALES[DEFAULT_TO_WORDS_OPTIONS.localeCode]
@@ -276,7 +276,7 @@ function isNumberZero(number: number): boolean {
 
 function convertInternal(
   number: number,
-  locale: NumberToWordsLocaleConfig,
+  locale: NumberInWordsLocaleConfig,
   trailing: boolean = false,
 ): string[] {
   if (locale.exactWordsMapping) {
@@ -346,7 +346,7 @@ function convertInternal(
 
 function convertNumber(
   number: number,
-  locale: NumberToWordsLocaleConfig,
+  locale: NumberInWordsLocaleConfig,
 ): string[] {
   const isNegativeNumber = number < 0
   if (isNegativeNumber) {
@@ -389,8 +389,8 @@ function convertNumber(
 
 function convertCurrency(
   number: number,
-  locale: NumberToWordsLocaleConfig,
-  options: NumberToWordsConverterOptions = {},
+  locale: NumberInWordsLocaleConfig,
+  options: NumberInWordsConverterOptions = {},
 ): string[] {
   const currencyOptions = options.currencyOptions ?? locale.currency
 
@@ -473,9 +473,9 @@ function convertCurrency(
  *
  * @category Formatter
  */
-export function formatNumberToWords(
+export function formatNumberInWords(
   number: number,
-  options: NumberToWordsOptions = {},
+  options: NumberInWordsOptions = {},
 ): string {
   const mergedOptions = { ...DEFAULT_TO_WORDS_OPTIONS, ...options }
   const localeCode = mergedOptions.localeCode
