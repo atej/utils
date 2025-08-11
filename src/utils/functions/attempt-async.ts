@@ -1,4 +1,5 @@
 import type { Result } from '../../types/result.ts'
+import { defaultTransformError, type TransformError } from './attempt.ts'
 
 /**
  * Attempt to execute an async function and return a result.
@@ -12,14 +13,14 @@ import type { Result } from '../../types/result.ts'
  * @dataFirst
  * @category Function
  */
-export async function attemptAsync<T>(fn: () => Promise<T>): Promise<Result<T, unknown>>
-export async function attemptAsync<T, E>(
+export async function attemptAsync<T>(fn: () => Promise<T>): Promise<Result<T, Error>>
+export async function attemptAsync<T, E extends Error>(
   fn: () => Promise<T>,
-  transformError: (error: unknown) => E,
+  transformError: TransformError<E>,
 ): Promise<Result<T, E>>
-export async function attemptAsync<T, E>(
+export async function attemptAsync<T, E extends Error>(
   fn: () => Promise<T>,
-  transformError?: (error: unknown) => E,
+  transformError?: TransformError<E>,
 ) {
   try {
     const data = await fn()
@@ -27,7 +28,7 @@ export async function attemptAsync<T, E>(
   } catch (error) {
     return {
       data: undefined,
-      error: transformError ? transformError(error) : error,
+      error: transformError ? transformError(error) : defaultTransformError(error),
     }
   }
 }

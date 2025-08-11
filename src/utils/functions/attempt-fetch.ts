@@ -45,7 +45,7 @@ export async function attemptFetch<
     return response
   })
 
-  if (error || !response) {
+  if (error) {
     return {
       error: error instanceof Error
         ? new FetchError(`Failed to fetch ${String(input)}: ${error.message}`)
