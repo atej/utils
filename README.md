@@ -3,7 +3,11 @@
 ## Installation
 
 ```shell
+# npm
 npx jsr add @atej/utils
+
+# deno
+deno add jsr:@atej/utils
 ```
 
 ## Usage
