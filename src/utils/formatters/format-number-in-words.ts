@@ -15,10 +15,7 @@
  * @module
  */
 
-/**
- * Currency formatting options
- */
-export type NumberInWordsCurrencyOptions = {
+type NumberInWordsCurrencyOptions = {
   /**
    * The name of the currency @example 'Rupee'
    */
@@ -85,7 +82,10 @@ type NumberInWordsConverterOptions = {
   currencyOptions?: NumberInWordsCurrencyOptions
 }
 
-type NumberInWordsOptions = {
+/**
+ * Options for formatting a number in words.
+ */
+export type NumberInWordsOptions = {
   /**
    * The locale code to use for the conversion
    * @default 'en-IN'
