@@ -76,7 +76,7 @@ export function buildQuerystring(
   const entries = Object.entries(params)
 
   const transformedEntries: [string, SearchParamValue][] = []
-  const objectEntry: [string, string[]] = [objectIndicatorKey, []]
+  const objectIndicatorEntry: [string, string[]] = [objectIndicatorKey, []]
 
   for (const [key, value] of entries) {
     // transform arrays
@@ -91,7 +91,7 @@ export function buildQuerystring(
       if (error) {
         return { data: undefined, error }
       } else {
-        objectEntry[1].push(key)
+        objectIndicatorEntry[1].push(key)
         transformedEntries.push([key, stringified])
       }
     } // other values pass through
@@ -100,7 +100,7 @@ export function buildQuerystring(
     }
   }
 
-  transformedEntries.push(objectEntry)
+  transformedEntries.push(objectIndicatorEntry)
 
   // finally, filter out all `null`, `undefined`, and empty array values
   const finalEntries = transformedEntries.filter(([, value]) =>
