@@ -2,14 +2,14 @@ import { z } from 'zod/v4'
 import { RAZORPAY_CURRENCY_CODES } from './data.ts'
 
 /**
- * Zod schema for a Razorpay currency code.
+ * Zod schema that validates a Razorpay currency code.
  *
  * @see https://razorpay.com/docs/payments/international-payments#supported-currencies
  */
 export const razorpayCurrencyCodeSchema = z.enum(RAZORPAY_CURRENCY_CODES)
 
 /**
- * Zod schema for a Razorpay order entity.
+ * Zod schema that validates a Razorpay order entity.
  *
  * @see https://razorpay.com/docs/api/orders/entity
  */
