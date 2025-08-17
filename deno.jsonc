@@ -1,8 +1,13 @@
 {
   "name": "@atej/utils",
-  "version": "0.10.2",
+  "version": "0.11.0",
   "license": "MIT",
-  "exports": "./src/mod.ts",
+  "exports": {
+    ".": "./src/mod.ts",
+    "./crypto": "./src/utils/crypto/mod.ts",
+    "./cloudflare": "./src/utils/cloudflare/mod.ts",
+    "./razorpay": "./src/utils/razorpay/mod.ts"
+  },
   "nodeModulesDir": "auto",
   "publish": {
     "include": ["LICENSE", "README.md", "src/**/*.ts"],
@@ -35,7 +40,9 @@
     "is-ci": "npm:is-ci@^4.1.0",
     "lint-staged": "npm:lint-staged@^16.1.5",
     "type-fest": "npm:type-fest@^4.41.0",
-    "vitest": "npm:vitest@^3.2.4"
+    "vitest": "npm:vitest@^3.2.4",
+    // upgrade to Zod 4 when Astro supports it
+    "zod": "npm:zod@^3.25.76"
   },
   "compilerOptions": {
     "verbatimModuleSyntax": true,
@@ -46,6 +53,15 @@
     "lineWidth": 100,
     "semiColons": false,
     "singleQuote": true,
-    "include": ["src/"]
+    "include": ["src/"],
+    "quoteProps": "consistent"
+  },
+  "lint": {
+    "rules": {
+      "exclude": [
+        // excluded to enable exporting zod schemas
+        "no-slow-types"
+      ]
+    }
   }
 }
