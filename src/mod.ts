@@ -1,9 +1,3 @@
-/**
- * The main entry point. Everything exported from this module can be used both server-side and client-side.
- *
- * @module
- */
-
 // Arrays
 export { joinTruthy } from './utils/arrays/join-truthy.ts'
 
@@ -39,10 +33,3 @@ export {
   STATUS,
   SUCCESS_STATUS,
 } from './utils/web/status-codes.ts'
-
-// Types
-export type { Equal } from './types/equal.ts'
-export type { Expect } from './types/expect.ts'
-export type { JsonObject } from './types/json-object.ts'
-export type { ParseResult } from './types/parse-result.ts'
-export type { Result } from './types/result.ts'
