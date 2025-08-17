@@ -1,3 +1,9 @@
+/**
+ * The main entry point. Everything exported from this module can be used both server-side and client-side.
+ *
+ * @module
+ */
+
 // Arrays
 export { joinTruthy } from './utils/arrays/join-truthy.ts'
 

@@ -1,3 +1,12 @@
+/**
+ * This module contains utilities for Cloudflare.
+ *
+ * These utilities take a incoming request's Cloudflare properties as an argument,
+ * so are meant to be used server-side.
+ *
+ * @module
+ */
+
 export {
   type CfContinentCode,
   type CfCountryCode,
