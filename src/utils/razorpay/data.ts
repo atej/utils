@@ -137,8 +137,8 @@ export const RAZORPAY_CURRENCIES = {
   ZMW: { code: 'ZMW', name: 'Zambian Kwacha', exponent: 2 },
 } as const satisfies Record<string, { code: string; name: string; exponent: number }>
 
-/*
- * A list of all the currency codes supported by Razorpay.
+/**
+ * An array of all currency codes supported by Razorpay.
  *
  * @see https://razorpay.com/docs/payments/international-payments#supported-currencies
  */
