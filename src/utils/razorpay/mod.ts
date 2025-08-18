@@ -10,6 +10,8 @@ export {
   createRazorpayOrderParamsSchema,
 } from './create-order.ts'
 
+export { serializeRazorpayCheckoutOptions } from './serialize-checkout-options.ts'
+
 export { RAZORPAY_CURRENCIES, RAZORPAY_CURRENCY_CODES } from './data.ts'
 
 export { type RazorpayOrder, razorpayOrderSchema } from './schemas.ts'

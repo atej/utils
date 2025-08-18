@@ -8,7 +8,10 @@ function defaultSerializer(options: RazorpayCheckoutOptions): Result<string> {
   return jsonc.stringify(options)
 }
 
-export function serializeCheckoutOptions(
+/**
+ * Serialize Razorpay checkout options.
+ */
+export function serializeRazorpayCheckoutOptions(
   input: RazorpayCheckoutOptions,
   serializeOptions?: { serializer?: Serializer },
 ): Result<string> {
