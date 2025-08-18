@@ -31,8 +31,10 @@ import type { Equal } from '@atej/utils'
   take incoming request's Cloudflare properties as an argument (server-only)
 - [`@atej/utils/crypto`](https://jsr.io/@atej/utils/doc#crypto): Cryptographic utilities that depend
   on `node:crypto` (server-only)
-- [`@atej/utils/razorpay`](https://jsr.io/@atej/utils/doc#razorpay): Razorpay payment gateway
-  utilities (server-only)
+- [`@atej/utils/razorpay`](https://jsr.io/@atej/utils/doc#razorpay): Utilities for Razorpay payment
+  gateway (server-only)
+- [`@atej/utils/razorpay/client`](https://jsr.io/@atej/utils/doc#razorpay/client): Utilities for
+  Razorpay payment gateway (browser-only)
 - [`@atej/utils/types`](https://jsr.io/@atej/utils/doc#types): General type-level utilities
 
 ## Docs
@@ -41,4 +43,4 @@ import type { Equal } from '@atej/utils'
 
 ## Notes
 
-The package is published with --allow-slow-types to make exporting zod schemas viable.
+The package is published with `--allow-slow-types` to make exporting Zod schemas viable.
