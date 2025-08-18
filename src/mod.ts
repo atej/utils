@@ -6,6 +6,9 @@ export { attemptAsync } from './utils/functions/attempt-async.ts'
 export { attemptFetch, type FetchResult } from './utils/functions/attempt-fetch.ts'
 export { attempt } from './utils/functions/attempt.ts'
 
+// JSON
+export { getJsonUtil, json, jsonc } from './utils/json/json.ts'
+
 // Parsers
 export { parseNumber } from './utils/parsers/parse-number.ts'
 
@@ -19,6 +22,7 @@ export {
 } from './utils/formatters/format-number-in-words.ts'
 
 // Web
+export { getUserLang } from './utils/web/get-user-lang.ts'
 export {
   buildQuerystring,
   keepInQuerystring,

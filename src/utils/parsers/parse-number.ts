@@ -1,4 +1,4 @@
-import type { ParseResult } from '../../types/parse-result.ts'
+import type { ParseResult } from '../types/parse-result.ts'
 
 /**
  * Parses a number from a string or number. Bigints are not supported.

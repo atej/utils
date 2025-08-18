@@ -1,4 +1,4 @@
-import type { Result } from '../../types/result.ts'
+import type { Result } from '../types/result.ts'
 
 export type TransformError<E extends Error> = (error: unknown) => E
 export const defaultTransformError: TransformError<Error> = (error) =>

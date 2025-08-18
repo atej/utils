@@ -1,6 +1,6 @@
 import LZString from 'lz-string'
-import type { Result } from '../../types/result.ts'
 import { attempt } from '../functions/attempt.ts'
+import type { Result } from '../types/result.ts'
 
 type JSONOptions = { compression?: boolean }
 type JsonStringifyParameters = Parameters<typeof JSON.stringify>
@@ -17,7 +17,7 @@ const DEFAULT_JSON_OPTIONS: JSONOptions = {
  * @param options - The options for serializing and deserializing.
  * @returns An object with stringify and parse methods for JSON.
  */
-export function json(options?: JSONOptions): {
+export function getJsonUtil(options?: JSONOptions): {
   stringify: (...params: JsonStringifyParameters) => Result<string, JsonError>
   parse: (...params: JsonParseParameters) => Result<unknown, JsonError>
 } {
@@ -110,3 +110,14 @@ class JsonError extends Error {
     this.name = 'JsonError'
   }
 }
+
+/**
+ * JSON stringify and parse which returns a result object instead of implicitly throwing an error.
+ */
+export const json: ReturnType<typeof getJsonUtil> = getJsonUtil()
+
+/**
+ * Use this to stringify and subsequently compress the string into a URL-safe string.
+ * The corresponding parse method decompresses the string before parsing it.
+ */
+export const jsonc: ReturnType<typeof getJsonUtil> = getJsonUtil({ compression: true })

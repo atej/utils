@@ -1,13 +1,14 @@
 {
   "name": "@atej/utils",
-  "version": "0.11.2",
+  "version": "0.11.3",
   "license": "MIT",
   "exports": {
     ".": "./src/mod.ts",
     "./crypto": "./src/utils/crypto/mod.ts",
     "./cloudflare": "./src/utils/cloudflare/mod.ts",
     "./razorpay": "./src/utils/razorpay/mod.ts",
-    "./types": "./src/types/mod.ts"
+    "./razorpay/client": "./src/utils/razorpay/client/mod.ts",
+    "./types": "./src/utils/types/mod.ts"
   },
   "nodeModulesDir": "auto",
   "publish": {
@@ -30,6 +31,8 @@
     "precommit": "lint-staged"
   },
   "imports": {
+    "@es-toolkit/es-toolkit": "jsr:@es-toolkit/es-toolkit@^1.39.10",
+    "@remeda/remeda": "jsr:@remeda/remeda@^2.30.0",
     "lz-string": "npm:lz-string@^1.5.0",
     "search-params": "npm:search-params@^4.0.1",
     "@cloudflare/workers-types": "npm:@cloudflare/workers-types@^4.20250816.0",
@@ -46,6 +49,7 @@
     "zod": "npm:zod@^3.25.76"
   },
   "compilerOptions": {
+    "lib": ["ESNext", "DOM"],
     "verbatimModuleSyntax": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true

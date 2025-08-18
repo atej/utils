@@ -33,7 +33,7 @@ import type { Equal } from '@atej/utils'
   on `node:crypto` (server-only)
 - [`@atej/utils/razorpay`](https://jsr.io/@atej/utils/doc#razorpay): Razorpay payment gateway
   utilities (server-only)
-- [`@atej/utils/types`](https://jsr.io/@atej/utils/doc#types): Type utilities
+- [`@atej/utils/types`](https://jsr.io/@atej/utils/doc#types): General type-level utilities
 
 ## Docs
 

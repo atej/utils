@@ -1,5 +1,5 @@
-import type { Equal } from '../../types/equal.ts'
-import type { Expect } from '../../types/expect.ts'
+import type { Equal } from '../types/equal.ts'
+import type { Expect } from '../types/expect.ts'
 
 /**
  * An object of all the currencies supported by Razorpay.
@@ -277,3 +277,10 @@ export const RAZORPAY_CURRENCY_CODES = [
 type _assert = Expect<
   Equal<keyof typeof RAZORPAY_CURRENCIES, typeof RAZORPAY_CURRENCY_CODES[number]>
 >
+
+/**
+ * An array of all languages supported by the Razorpay checkout modal.
+ *
+ * @see https://razorpay.com/docs/payments/payment-gateway/web-integration/standard/integration-steps/#123-checkout-options
+ */
+export const RAZORPAY_CHECKOUT_LANGS = ['en', 'ben', 'hi', 'mar', 'guj', 'tam', 'tel'] as const

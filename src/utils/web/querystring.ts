@@ -1,9 +1,7 @@
 import { build, type IOptions, keep, omit, parse } from 'search-params'
-import type { JsonObject } from '../../types/json-object.ts'
-import type { Result } from '../../types/result.ts'
-import { json as jsonUtil } from '../json/json.ts'
-
-const json = jsonUtil({ compression: true })
+import { jsonc } from '../json/json.ts'
+import type { JsonObject } from '../types/json-object.ts'
+import type { Result } from '../types/result.ts'
 
 /**
  * Specififies how differnet values are stringified and parsed
@@ -87,7 +85,7 @@ export function buildQuerystring(
       }
     } // transform objects
     else if (typeof value === 'object' && value !== null) {
-      const { data: stringified, error } = json.stringify(value)
+      const { data: stringified, error } = jsonc.stringify(value)
       if (error) {
         return { data: undefined, error }
       } else {
@@ -144,7 +142,7 @@ export function parseQuerystring(
       if (typeof value !== 'string') {
         return { data: undefined, error: new Error(`Expected value of type string for key ${key}`) }
       }
-      const { data: parsed, error } = json.parse(value)
+      const { data: parsed, error } = jsonc.parse(value)
       if (error) {
         return { data: undefined, error }
       } else {

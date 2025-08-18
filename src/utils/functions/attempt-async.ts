@@ -1,4 +1,4 @@
-import type { Result } from '../../types/result.ts'
+import type { Result } from '../types/result.ts'
 import { defaultTransformError, type TransformError } from './attempt.ts'
 
 /**
