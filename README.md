@@ -38,3 +38,7 @@ import type { Equal } from '@atej/utils'
 ## Docs
 
 [View on JSR](https://jsr.io/@atej/utils/doc)
+
+## Notes
+
+The package is published with --allow-slow-types to make exporting zod schemas viable.
