@@ -1,3 +1,4 @@
+import { isBrowser } from '@es-toolkit/es-toolkit'
 import { isIncludedIn, keys } from '@remeda/remeda'
 import type { RequireExactlyOne } from 'type-fest'
 import { jsonc } from '../../json/json.ts'
@@ -6,9 +7,6 @@ import { getUserLang } from '../../web/get-user-lang.ts'
 import type { RAZORPAY_CHECKOUT_LANGS } from '../data.ts'
 import type { RazorpayCheckoutOptions } from '../schemas.ts'
 
-declare global {
-  var Razorpay: RazorpayConstructor | undefined
-}
 type RazorpayCheckoutLang = (typeof RAZORPAY_CHECKOUT_LANGS)[number]
 type RazorpayConstructor = new (options: unknown) => { open: () => void }
 type LoadRazorpayResult = Result<RazorpayConstructor>
@@ -32,6 +30,8 @@ export async function openRazorpayCheckout(
   params: OpenRazorpayCheckoutParameters,
 ): Promise<Result<{ success: true }, Error>> {
   try {
+    if (!isBrowser()) throw new Error('use openRazorpayCheckout in the browser')
+
     const { error, data: Razorpay } = await loadRazorpay()
     if (error) throw error
 
@@ -77,7 +77,8 @@ async function loadRazorpay(): Promise<LoadRazorpayResult> {
       console.log('✅ razorpay script loaded')
       resolve({
         error: undefined,
-        data: globalThis.Razorpay!,
+        // @ts-expect-error - At this point, Razorpay will be defined on window
+        data: globalThis.Razorpay as unknown as RazorpayConstructor,
       })
     }
     script.onerror = (error) => {
