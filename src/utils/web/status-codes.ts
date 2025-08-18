@@ -224,7 +224,7 @@ export const STATUS = {
   /**
    * A subset of commonly used HTTP status codes for success.
    */
-  SUCCESS: SUCCESS_STATUS,
+  'SUCCESS': SUCCESS_STATUS,
   /**
    * A subset of commonly used HTTP status codes for success.
    */
@@ -233,7 +233,7 @@ export const STATUS = {
   /**
    * A subset of commonly used HTTP status codes for redirects.
    */
-  REDIRECT: REDIRECT_STATUS,
+  'REDIRECT': REDIRECT_STATUS,
   /**
    * A subset of commonly used HTTP status codes for redirects.
    */
@@ -242,7 +242,7 @@ export const STATUS = {
   /**
    * A subset of commonly used HTTP status codes for client errors.
    */
-  CLIENT_ERROR: CLIENT_ERROR_STATUS,
+  'CLIENT_ERROR': CLIENT_ERROR_STATUS,
   /**
    * A subset of commonly used HTTP status codes for client errors.
    */
@@ -251,7 +251,7 @@ export const STATUS = {
   /**
    * A subset of commonly used HTTP status codes for server errors.
    */
-  SERVER_ERROR: SERVER_ERROR_STATUS,
+  'SERVER_ERROR': SERVER_ERROR_STATUS,
   /**
    * A subset of commonly used HTTP status codes for server errors.
    */
