@@ -1,6 +1,6 @@
 {
   "name": "@atej/utils",
-  "version": "0.12.1",
+  "version": "0.12.2",
   "license": "MIT",
   "exports": {
     ".": "./src/mod.ts",
@@ -38,7 +38,7 @@
     "lz-string": "npm:lz-string@^1.5.0",
     "mustache": "npm:mustache@^4.2.0",
     "search-params": "npm:search-params@^4.0.1",
-    "@cloudflare/workers-types": "npm:@cloudflare/workers-types@^4.20250816.0",
+    "@cloudflare/workers-types": "npm:@cloudflare/workers-types@^4.20250821.0",
     "@total-typescript/ts-reset": "npm:@total-typescript/ts-reset@^0.6.1",
     "@types/node": "npm:@types/node@^24.3.0",
     "@vitest/coverage-v8": "npm:@vitest/coverage-v8@^3.2.4",

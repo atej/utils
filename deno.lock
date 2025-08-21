@@ -2,7 +2,7 @@
   "version": "5",
   "specifiers": {
     "jsr:@remeda/remeda@^2.30.0": "2.30.0",
-    "npm:@cloudflare/workers-types@^4.20250816.0": "4.20250816.0",
+    "npm:@cloudflare/workers-types@^4.20250821.0": "4.20250821.0",
     "npm:@total-typescript/ts-reset@~0.6.1": "0.6.1",
     "npm:@types/mustache@^4.2.6": "4.2.6",
     "npm:@types/node@*": "24.2.0",
@@ -60,8 +60,8 @@
     "@bcoe/v8-coverage@1.0.2": {
       "integrity": "sha512-6zABk/ECA/QYSCQ1NGiVwwbQerUCZ+TQbp64Q3AgmfNvurHH0j8TtXa1qbShXA6qqkpAj4V5W8pP6mLe1mcMqA=="
     },
-    "@cloudflare/workers-types@4.20250816.0": {
-      "integrity": "sha512-R9ADrrINo1CqTwCddH39Tjlsc3grim6KeO7l8yddNbldH3uTkaAXYCzO0WiyLG7irLzLDrZVc4tLhN6BO3tdFw=="
+    "@cloudflare/workers-types@4.20250821.0": {
+      "integrity": "sha512-dbmorEqYnTMhSWh3lW3uBiufbzjvhrHsBD4SVNvhdhE1EdkkvAqhBzOyKRJxnQX04Afxm/txhdFe66eZrPPPkQ=="
     },
     "@esbuild/aix-ppc64@0.25.9": {
       "integrity": "sha512-OaGtL73Jck6pBKjNIe24BnFE6agGl+6KxDtTfHhy1HmhthfKouEcOhqpSL64K4/0WCtbKFLOdzD/44cJ4k9opA==",
@@ -1316,7 +1316,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@remeda/remeda@^2.30.0",
-      "npm:@cloudflare/workers-types@^4.20250816.0",
+      "npm:@cloudflare/workers-types@^4.20250821.0",
       "npm:@total-typescript/ts-reset@~0.6.1",
       "npm:@types/mustache@^4.2.6",
       "npm:@types/node@^24.3.0",
