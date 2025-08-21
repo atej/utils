@@ -42,7 +42,7 @@ export const createRazorpayOrderParamsSchema: CreateRazorpayOrderParamsZodSchema
 
 /**
  * Type that represents the parameters for `createRazorpayOrder`.
- * An optional type parameter can be passed to constrain the type of `notes.
+ * An optional type parameter can be passed to constrain the type of `notes`.
  *
  * @see https://razorpay.com/docs/api/orders/create
  */

@@ -169,4 +169,7 @@ export const razorpayCheckoutParamsSchema: RazorpayCheckoutParamsZodSchema = z.o
   }).optional(),
 })
 
+/**
+ * Type that represents the parameters for the `openRazorpayCheckout` function.
+ */
 export type RazorpayCheckoutParams = z.infer<typeof razorpayCheckoutParamsSchema>
