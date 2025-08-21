@@ -3,30 +3,59 @@ import z from 'zod/v4'
 import { attemptFetch } from '../../functions/attempt-fetch.ts'
 import { omitNullish } from '../../objects/omit-nullish.ts'
 import { emailSchema } from '../../schemas/mod.ts'
-import { messageDataVariablesSchema } from '../schemas.ts'
+import { messageDataVariablesSchema, type MessageDataVariablesZodSchema } from '../schemas.ts'
+
+type SendLoopsTemplateMessageParamsZodSchema = z.ZodObject<{
+  credentials: z.ZodObject<{
+    secretKey: z.ZodString
+  }, z.core.$strip>
+  to: z.ZodObject<{
+    email: z.ZodPipe<z.ZodString, z.ZodEmail>
+  }, z.core.$strip>
+  template: z.ZodObject<{
+    id: z.ZodString
+    dataVariables: z.ZodOptional<MessageDataVariablesZodSchema>
+  }, z.core.$strip>
+  options: z.ZodOptional<
+    z.ZodObject<{
+      addToAudience: z.ZodOptional<z.ZodBoolean>
+      attachments: z.ZodOptional<
+        z.ZodArray<
+          z.ZodObject<{
+            filename: z.ZodString
+            contentType: z.ZodString
+            data: z.ZodString
+          }, z.core.$strip>
+        >
+      >
+      idempotencyKey: z.ZodOptional<z.ZodString>
+    }, z.core.$strip>
+  >
+}, z.core.$strip>
 
 /** Zod schema to validate parameters for `sendLoopsMessage`. */
-export const sendLoopsTemplateMessageParamsSchema = z.object({
-  credentials: z.object({
-    secretKey: z.string(),
-  }),
-  to: z.object({
-    email: emailSchema,
-  }),
-  template: z.object({
-    id: z.string(),
-    dataVariables: messageDataVariablesSchema.optional(),
-  }),
-  options: z.object({
-    addToAudience: z.boolean().optional(),
-    attachments: z.array(z.object({
-      filename: z.string(),
-      contentType: z.string(),
-      data: z.string(),
-    })).optional(),
-    idempotencyKey: z.string().optional(),
-  }).optional(),
-})
+export const sendLoopsTemplateMessageParamsSchema: SendLoopsTemplateMessageParamsZodSchema = z
+  .object({
+    credentials: z.object({
+      secretKey: z.string(),
+    }),
+    to: z.object({
+      email: emailSchema,
+    }),
+    template: z.object({
+      id: z.string(),
+      dataVariables: messageDataVariablesSchema.optional(),
+    }),
+    options: z.object({
+      addToAudience: z.boolean().optional(),
+      attachments: z.array(z.object({
+        filename: z.string(),
+        contentType: z.string(),
+        data: z.string(),
+      })).optional(),
+      idempotencyKey: z.string().optional(),
+    }).optional(),
+  })
 
 /** Parameters for `sendLoopsMessage`. */
 export type SendLoopsTemplateMessageParams = z.infer<typeof sendLoopsTemplateMessageParamsSchema>

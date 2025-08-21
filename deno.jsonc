@@ -1,6 +1,6 @@
 {
   "name": "@atej/utils",
-  "version": "0.12.3",
+  "version": "0.12.4",
   "license": "MIT",
   "exports": {
     ".": "./src/mod.ts",
@@ -55,7 +55,8 @@
     "lib": ["ESNext", "DOM"],
     "verbatimModuleSyntax": true,
     "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true
+    "exactOptionalPropertyTypes": true,
+    "noErrorTruncation": true
   },
   "fmt": {
     "lineWidth": 100,
@@ -63,13 +64,5 @@
     "singleQuote": true,
     "include": ["src/"],
     "quoteProps": "consistent"
-  },
-  "lint": {
-    "rules": {
-      "exclude": [
-        // excluded to enable exporting zod schemas
-        "no-slow-types"
-      ]
-    }
   }
 }

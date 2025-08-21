@@ -9,7 +9,7 @@ export {
   type CreateRazorpayOrderParams,
   createRazorpayOrderParamsSchema,
 } from './create-order.ts'
-export { type RazorpayOrder, razorpayOrderSchema } from './order.schema.ts'
+export type { RazorpayOrder, razorpayOrderSchema } from './order.schema.ts'
 
 export {
   type RazorpayCheckoutParams,

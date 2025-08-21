@@ -6,15 +6,29 @@ import {
   convertAmountToSubunits,
   getRazorpayRequestHeaders,
   razorpayCredentialsSchema,
+  type RazorpayCredentialsZodSchema,
   type RazorpayCurrencyCode,
   razorpayCurrencyCodeSchema,
+  type RazorpayCurrencyCodeZodSchema,
 } from './helpers.ts'
 import type { RazorpayOrder } from './order.schema.ts'
+
+type CreateRazorpayOrderParamsZodSchema = z.ZodObject<{
+  credentials: RazorpayCredentialsZodSchema
+  order: z.ZodObject<{
+    amount: z.ZodNumber
+    currency: RazorpayCurrencyCodeZodSchema
+    notes: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>
+    receipt: z.ZodOptional<z.ZodString>
+    partialPayment: z.ZodOptional<z.ZodBoolean>
+    firstPaymentMinAmount: z.ZodOptional<z.ZodNumber>
+  }, z.core.$strip>
+}, z.core.$strip>
 
 /**
  * Zod schema that validates the parameters for `createRazorpayOrder`.
  */
-export const createRazorpayOrderParamsSchema = z.object({
+export const createRazorpayOrderParamsSchema: CreateRazorpayOrderParamsZodSchema = z.object({
   credentials: razorpayCredentialsSchema,
   order: z.object({
     amount: z.number(),

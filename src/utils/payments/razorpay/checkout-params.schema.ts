@@ -1,8 +1,103 @@
 import z from 'zod/v4'
 import { RAZORPAY_CHECKOUT_LANGS } from './data.ts'
-import { razorpayCurrencyCodeSchema } from './helpers.ts'
+import { razorpayCurrencyCodeSchema, type RazorpayCurrencyCodeZodSchema } from './helpers.ts'
 
-export const razorpayCheckoutParamsSchema = z.object({
+type RazorpayCheckoutParamsZodSchema = z.ZodObject<{
+  key: z.ZodString
+  amount: z.ZodNumber
+  currency: RazorpayCurrencyCodeZodSchema
+  orderId: z.ZodString
+  businessName: z.ZodString
+  onSuccess: z.ZodOptional<z.ZodUnknown>
+  callbackUrl: z.ZodOptional<z.ZodURL>
+  redirectOnFailure: z.ZodOptional<z.ZodBoolean>
+  description: z.ZodOptional<z.ZodString>
+  notes: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>
+  logoImage: z.ZodOptional<z.ZodString>
+  prefill: z.ZodOptional<
+    z.ZodObject<{
+      name: z.ZodOptional<z.ZodString>
+      email: z.ZodOptional<z.ZodString>
+      phoneWithPhoneCode: z.ZodOptional<z.ZodString>
+      method: z.ZodOptional<
+        z.ZodEnum<{
+          card: 'card'
+          upi: 'upi'
+          netbanking: 'netbanking'
+          wallet: 'wallet'
+          emi: 'emi'
+        }>
+      >
+    }, z.core.$strip>
+  >
+  readonly: z.ZodOptional<
+    z.ZodObject<{
+      name: z.ZodOptional<z.ZodBoolean>
+      email: z.ZodOptional<z.ZodBoolean>
+      phoneWithPhoneCode: z.ZodOptional<z.ZodBoolean>
+    }, z.core.$strip>
+  >
+  hidden: z.ZodOptional<
+    z.ZodObject<{
+      email: z.ZodOptional<z.ZodBoolean>
+      phoneWithPhoneCode: z.ZodOptional<z.ZodBoolean>
+    }, z.core.$strip>
+  >
+  theme: z.ZodOptional<
+    z.ZodObject<{
+      color: z.ZodOptional<z.ZodString>
+      backdropColor: z.ZodOptional<z.ZodString>
+    }, z.core.$strip>
+  >
+  modal: z.ZodOptional<
+    z.ZodObject<{
+      onDismiss: z.ZodOptional<z.ZodUnknown>
+      confirmClose: z.ZodOptional<z.ZodBoolean>
+      animateOpening: z.ZodOptional<z.ZodBoolean>
+      closeOnBackdropClick: z.ZodOptional<z.ZodBoolean>
+      closeOnEscape: z.ZodOptional<z.ZodBoolean>
+      closeOnBrowserBack: z.ZodOptional<z.ZodBoolean>
+    }, z.core.$strip>
+  >
+  recurring: z.ZodOptional<z.ZodBoolean>
+  subscriptionId: z.ZodOptional<z.ZodString>
+  allowSubscriptionCardChange: z.ZodOptional<z.ZodBoolean>
+  customerId: z.ZodOptional<z.ZodString>
+  rememberCustomer: z.ZodOptional<z.ZodBoolean>
+  timeout: z.ZodOptional<z.ZodNumber>
+  sendSmsHash: z.ZodOptional<z.ZodBoolean>
+  allowRotation: z.ZodOptional<z.ZodBoolean>
+  retry: z.ZodOptional<
+    z.ZodObject<{
+      enabled: z.ZodOptional<z.ZodBoolean>
+      maxCount: z.ZodOptional<z.ZodNumber>
+    }, z.core.$strip>
+  >
+  config: z.ZodOptional<
+    z.ZodObject<{
+      display: z.ZodOptional<
+        z.ZodObject<{
+          language: z.ZodOptional<
+            z.ZodEnum<{
+              en: 'en'
+              ben: 'ben'
+              hi: 'hi'
+              mar: 'mar'
+              guj: 'guj'
+              tam: 'tam'
+              tel: 'tel'
+            }>
+          >
+        }, z.core.$strip>
+      >
+    }, z.core.$strip>
+  >
+}, z.core.$strip>
+
+/**
+ * Zod schema that validates the parameters for the `openRazorpayCheckout` function.
+ */
+export const razorpayCheckoutParamsSchema: RazorpayCheckoutParamsZodSchema = z.object({
   key: z.string(),
   amount: z.number(),
   currency: razorpayCurrencyCodeSchema,
