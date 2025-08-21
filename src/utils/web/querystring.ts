@@ -85,7 +85,7 @@ export function buildQuerystring(
       }
     } // transform objects
     else if (typeof value === 'object' && value !== null) {
-      const { data: stringified, error } = jsonc.stringify(value)
+      const { data: stringified, error } = jsonc().stringify(value)
       if (error) {
         return { data: undefined, error }
       } else {
@@ -142,7 +142,7 @@ export function parseQuerystring(
       if (typeof value !== 'string') {
         return { data: undefined, error: new Error(`Expected value of type string for key ${key}`) }
       }
-      const { data: parsed, error } = jsonc.parse(value)
+      const { data: parsed, error } = jsonc().parse(value)
       if (error) {
         return { data: undefined, error }
       } else {

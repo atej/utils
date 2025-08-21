@@ -10,7 +10,7 @@ export { attemptFetch, type FetchResult } from './utils/functions/attempt-fetch.
 export { attempt } from './utils/functions/attempt.ts'
 
 // JSON
-export { getJsonUtil, json, jsonc } from './utils/json/json.ts'
+export { json, jsonc } from './utils/json/json.ts'
 
 // Parsers
 export { parseNumber } from './utils/parsers/parse-number.ts'
@@ -26,6 +26,7 @@ export {
 
 // Web
 export { getUserLang } from './utils/web/get-user-lang.ts'
+export { isBrowser } from './utils/web/is-browser.ts'
 export {
   buildQuerystring,
   keepInQuerystring,

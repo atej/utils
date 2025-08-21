@@ -1,6 +1,6 @@
 {
   "name": "@atej/utils",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "license": "MIT",
   "exports": {
     ".": "./src/mod.ts",
@@ -33,7 +33,6 @@
     "precommit": "lint-staged"
   },
   "imports": {
-    "@es-toolkit/es-toolkit": "jsr:@es-toolkit/es-toolkit@^1.39.10",
     "@remeda/remeda": "jsr:@remeda/remeda@^2.30.0",
     "@types/mustache": "npm:@types/mustache@^4.2.6",
     "lz-string": "npm:lz-string@^1.5.0",

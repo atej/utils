@@ -284,3 +284,5 @@ type _assert = Expect<
  * @see https://razorpay.com/docs/payments/payment-gateway/web-integration/standard/integration-steps/#123-checkout-options
  */
 export const RAZORPAY_CHECKOUT_LANGS = ['en', 'ben', 'hi', 'mar', 'guj', 'tam', 'tel'] as const
+
+export type RazorpayCheckoutLang = (typeof RAZORPAY_CHECKOUT_LANGS)[number]

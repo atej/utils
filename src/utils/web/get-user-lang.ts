@@ -1,4 +1,4 @@
-import { isBrowser } from '@es-toolkit/es-toolkit'
+import { isBrowser } from './is-browser.ts'
 
 /**
  * Get the language of the user's browser.

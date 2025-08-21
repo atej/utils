@@ -9,11 +9,15 @@ export {
   type CreateRazorpayOrderParams,
   createRazorpayOrderParamsSchema,
 } from './create-order.ts'
+export { type RazorpayOrder, razorpayOrderSchema } from './order.schema.ts'
 
-export { serializeRazorpayCheckoutOptions } from './serialize-checkout-options.ts'
+export {
+  type RazorpayCheckoutParams,
+  razorpayCheckoutParamsSchema,
+} from './checkout-params.schema.ts'
+
+export { serializeRazorpayCheckoutParams } from './serialize-checkout-params.ts'
 
 export { RAZORPAY_CURRENCIES, RAZORPAY_CURRENCY_CODES } from './data.ts'
-
-export { type RazorpayOrder, razorpayOrderSchema } from './schemas.ts'
 
 export type { RazorpayCurrencyCode } from './helpers.ts'

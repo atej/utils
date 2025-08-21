@@ -3,14 +3,13 @@ import z from 'zod/v4'
 import { attemptFetch, type FetchResult } from '../../functions/attempt-fetch.ts'
 import { omitNullish } from '../../objects/omit-nullish.ts'
 import {
-  _unknownNotesSchema,
   convertAmountToSubunits,
   getRazorpayRequestHeaders,
   razorpayCredentialsSchema,
   type RazorpayCurrencyCode,
   razorpayCurrencyCodeSchema,
 } from './helpers.ts'
-import type { RazorpayOrder } from './schemas.ts'
+import type { RazorpayOrder } from './order.schema.ts'
 
 /**
  * Zod schema that validates the parameters for `createRazorpayOrder`.
@@ -20,7 +19,7 @@ export const createRazorpayOrderParamsSchema = z.object({
   order: z.object({
     amount: z.number(),
     currency: razorpayCurrencyCodeSchema,
-    notes: _unknownNotesSchema.optional(),
+    notes: z.record(z.string(), z.string()).optional(),
     receipt: z.string().optional(),
     partialPayment: z.boolean().optional(),
     firstPaymentMinAmount: z.number().optional(),

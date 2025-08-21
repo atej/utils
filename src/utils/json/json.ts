@@ -17,9 +17,9 @@ const DEFAULT_JSON_OPTIONS: JSONOptions = {
  * @param options - The options for serializing and deserializing.
  * @returns An object with stringify and parse methods for JSON.
  */
-export function getJsonUtil(options?: JSONOptions): {
+export function json<TData extends unknown = unknown>(options?: JSONOptions): {
   stringify: (...params: JsonStringifyParameters) => Result<string, JsonError>
-  parse: (...params: JsonParseParameters) => Result<unknown, JsonError>
+  parse: (...params: JsonParseParameters) => Result<TData, JsonError>
 } {
   const { compression } = { ...DEFAULT_JSON_OPTIONS, ...options }
 
@@ -49,7 +49,7 @@ export function getJsonUtil(options?: JSONOptions): {
           function () {
             const decompressed = LZString.decompressFromEncodedURIComponent(params[0])
             const parsed = JSON.parse(decompressed, params[1])
-            return parsed
+            return parsed as TData
           },
           (error) =>
             new JsonError(
@@ -82,7 +82,7 @@ export function getJsonUtil(options?: JSONOptions): {
       },
       parse: (...params: JsonParseParameters) => {
         return attempt(
-          () => JSON.parse(...params),
+          () => JSON.parse(...params) as TData,
           (error) =>
             new JsonError(
               `Failed to parse JSON string: ${
@@ -112,12 +112,13 @@ class JsonError extends Error {
 }
 
 /**
- * JSON stringify and parse which returns a result object instead of implicitly throwing an error.
- */
-export const json: ReturnType<typeof getJsonUtil> = getJsonUtil()
-
-/**
  * Use this to stringify and subsequently compress the string into a URL-safe string.
  * The corresponding parse method decompresses the string before parsing it.
+ *
+ * @returns An object with stringify and parse methods for JSON.
  */
-export const jsonc: ReturnType<typeof getJsonUtil> = getJsonUtil({ compression: true })
+export function jsonc<TData extends unknown = unknown>(
+  options?: JSONOptions,
+): ReturnType<typeof json<TData>> {
+  return json<TData>({ ...DEFAULT_JSON_OPTIONS, ...options, compression: true })
+}

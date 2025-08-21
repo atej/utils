@@ -1,7 +1,6 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@es-toolkit/es-toolkit@^1.39.10": "1.39.10",
     "jsr:@remeda/remeda@^2.30.0": "2.30.0",
     "npm:@cloudflare/workers-types@^4.20250816.0": "4.20250816.0",
     "npm:@total-typescript/ts-reset@~0.6.1": "0.6.1",
@@ -23,9 +22,6 @@
     "npm:zod@^3.25.76": "3.25.76"
   },
   "jsr": {
-    "@es-toolkit/es-toolkit@1.39.10": {
-      "integrity": "8757072a13aa64b3b349ba2b9d7d22fbe7ea6f138506c6cd2222d767cd79918f"
-    },
     "@remeda/remeda@2.30.0": {
       "integrity": "e33f675109a5f291228b52c45ebf5aaee5401a801373f2a79f9321f6e2fbc8f8",
       "dependencies": [
@@ -1319,7 +1315,6 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@es-toolkit/es-toolkit@^1.39.10",
       "jsr:@remeda/remeda@^2.30.0",
       "npm:@cloudflare/workers-types@^4.20250816.0",
       "npm:@total-typescript/ts-reset@~0.6.1",
