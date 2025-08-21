@@ -1,3 +1,13 @@
+/**
+ * Utilities for sending email and WhatsApp messages.
+ *
+ * Currently supported services:
+ * - Loops
+ * - Wbiztool
+ *
+ * @module
+ */
+
 export {
   sendLoopsTemplateMessage,
   type SendLoopsTemplateMessageParams,
