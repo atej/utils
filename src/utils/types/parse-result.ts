@@ -5,10 +5,10 @@
  */
 export type ParseResult<T> =
   | {
-    data: T
     success: true
+    data: T
   }
   | {
-    data: undefined
     success: false
+    error: Error
   }

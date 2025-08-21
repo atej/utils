@@ -1,6 +1,6 @@
 {
   "name": "@atej/utils",
-  "version": "0.12.6",
+  "version": "0.13.0",
   "license": "MIT",
   "exports": {
     ".": "./src/mod.ts",

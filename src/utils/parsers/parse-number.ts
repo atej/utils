@@ -9,36 +9,36 @@ import type { ParseResult } from '../types/parse-result.ts'
 export function parseNumber(value: unknown): ParseResult<number> {
   if (typeof value !== 'string' && typeof value !== 'number') {
     return {
-      data: undefined,
       success: false,
+      error: new Error('Value is not a string or number'),
     }
   }
 
   if (typeof value === 'number') {
     if (isNaN(value)) {
       return {
-        data: undefined,
         success: false,
+        error: new Error('Value is not a valid number'),
       }
     }
 
     return {
-      data: value,
       success: true,
+      data: value,
     }
   }
 
   const parsedString = parseFloat(value)
 
-  if (isNaN(parsedString) || !isFinite(parsedString)) {
+  if (isNaN(parsedString)) {
     return {
-      data: undefined,
       success: false,
+      error: new Error('Value is not a valid number'),
     }
   }
 
   return {
-    data: parsedString,
     success: true,
+    data: parsedString,
   }
 }

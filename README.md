@@ -18,12 +18,6 @@ Import a utility:
 import { parseNumber } from '@atej/utils'
 ```
 
-Import a type utility:
-
-```typescript
-import type { Equal } from '@atej/utils'
-```
-
 ## Entrypoints
 
 - [`@atej/utils`](https://jsr.io/@atej/utils/doc#default): Main entrypoint (server+browser)
