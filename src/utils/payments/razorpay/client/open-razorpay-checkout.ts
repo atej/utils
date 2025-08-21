@@ -1,9 +1,9 @@
 import { isBrowser } from '@es-toolkit/es-toolkit'
 import { isIncludedIn, keys } from '@remeda/remeda'
 import type { RequireExactlyOne } from 'type-fest'
-import { jsonc } from '../../json/json.ts'
-import type { Result } from '../../types/result.ts'
-import { getUserLang } from '../../web/get-user-lang.ts'
+import { jsonc } from '../../../json/json.ts'
+import type { Result } from '../../../types/result.ts'
+import { getUserLang } from '../../../web/get-user-lang.ts'
 import type { RAZORPAY_CHECKOUT_LANGS } from '../data.ts'
 import type { RazorpayCheckoutOptions } from '../schemas.ts'
 
@@ -18,10 +18,14 @@ function defaultDeserializer(options: string): RazorpayCheckoutOptions {
   return data as RazorpayCheckoutOptions
 }
 
-type OpenRazorpayCheckoutParameters = RequireExactlyOne<{
-  options: RazorpayCheckoutOptions
-  serialized: { options: string; deserializer?: Deserializer }
-}>
+type OpenRazorpayCheckoutParameters =
+  & RequireExactlyOne<{
+    options: RazorpayCheckoutOptions
+    serialized: { options: string; deserializer?: Deserializer }
+  }>
+  & {
+    onDismiss?: () => void
+  }
 
 /**
  * Open the Razorpay checkout modal. Return {success: true} if the modal is opened successfully, or an error.
@@ -38,11 +42,11 @@ export async function openRazorpayCheckout(
     if (params.serialized) {
       const deserializer = params.serialized.deserializer ?? defaultDeserializer
       const options = deserializer(params.serialized.options)
-      const finalizedOptions = finalizeRazorpayCheckoutOptions(options)
+      const finalizedOptions = finalizeRazorpayCheckoutOptions(options, params.onDismiss)
       const razorpay = new Razorpay(finalizedOptions)
       razorpay.open()
     } else {
-      const finalizedOptions = finalizeRazorpayCheckoutOptions(params.options)
+      const finalizedOptions = finalizeRazorpayCheckoutOptions(params.options, params.onDismiss)
       const razorpay = new Razorpay(finalizedOptions)
       razorpay.open()
     }
@@ -105,8 +109,8 @@ function finalizeRazorpayCheckoutOptions(
 
   return {
     ...rest,
-    modal: { ...modal, ...(onDismiss ? { ondismiss: onDismiss } : {}) },
-    config: { ...config, display: { language: getRazorpayCheckoutLang() } },
+    modal: { ...(onDismiss ? { ondismiss: onDismiss } : {}), ...modal },
+    config: { display: { language: getRazorpayCheckoutLang() }, ...config },
   }
 }
 

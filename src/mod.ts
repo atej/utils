@@ -1,6 +1,9 @@
 // Arrays
 export { joinTruthy } from './utils/arrays/join-truthy.ts'
 
+// Objects
+export { omitNullish } from './utils/objects/omit-nullish.ts'
+
 // Functions
 export { attemptAsync } from './utils/functions/attempt-async.ts'
 export { attemptFetch, type FetchResult } from './utils/functions/attempt-fetch.ts'

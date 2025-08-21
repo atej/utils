@@ -1,5 +1,5 @@
 import { isIncludedIn, keys } from '@remeda/remeda'
-import { getUserLang } from '../../web/get-user-lang.ts'
+import { getUserLang } from '../../../web/get-user-lang.ts'
 import type { RAZORPAY_CHECKOUT_LANGS } from '../data.ts'
 import type { RazorpayCheckoutOptions } from '../schemas.ts'
 

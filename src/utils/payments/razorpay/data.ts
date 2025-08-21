@@ -1,5 +1,5 @@
-import type { Equal } from '../types/equal.ts'
-import type { Expect } from '../types/expect.ts'
+import type { Equal } from '../../types/equal.ts'
+import type { Expect } from '../../types/expect.ts'
 
 /**
  * An object of all the currencies supported by Razorpay.

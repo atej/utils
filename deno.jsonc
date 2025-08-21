@@ -1,13 +1,15 @@
 {
   "name": "@atej/utils",
-  "version": "0.11.5",
+  "version": "0.12.0",
   "license": "MIT",
   "exports": {
     ".": "./src/mod.ts",
     "./crypto": "./src/utils/crypto/mod.ts",
     "./cloudflare": "./src/utils/cloudflare/mod.ts",
-    "./razorpay": "./src/utils/razorpay/mod.ts",
-    "./razorpay/client": "./src/utils/razorpay/client/mod.ts",
+    "./messaging": "./src/utils/messaging/mod.ts",
+    "./razorpay": "./src/utils/payments/razorpay/mod.ts",
+    "./razorpay/client": "./src/utils/payments/razorpay/client/mod.ts",
+    "./schemas": "./src/utils/schemas/mod.ts",
     "./types": "./src/utils/types/mod.ts"
   },
   "nodeModulesDir": "auto",
@@ -33,7 +35,9 @@
   "imports": {
     "@es-toolkit/es-toolkit": "jsr:@es-toolkit/es-toolkit@^1.39.10",
     "@remeda/remeda": "jsr:@remeda/remeda@^2.30.0",
+    "@types/mustache": "npm:@types/mustache@^4.2.6",
     "lz-string": "npm:lz-string@^1.5.0",
+    "mustache": "npm:mustache@^4.2.0",
     "search-params": "npm:search-params@^4.0.1",
     "@cloudflare/workers-types": "npm:@cloudflare/workers-types@^4.20250816.0",
     "@total-typescript/ts-reset": "npm:@total-typescript/ts-reset@^0.6.1",

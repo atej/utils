@@ -1,5 +1,5 @@
-import { jsonc } from '../json/json.ts'
-import type { Result } from '../types/result.ts'
+import { jsonc } from '../../json/json.ts'
+import type { Result } from '../../types/result.ts'
 import type { RazorpayCheckoutOptions } from './schemas.ts'
 
 type Serializer = (options: RazorpayCheckoutOptions) => Result<string>
