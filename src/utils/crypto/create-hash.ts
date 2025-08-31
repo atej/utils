@@ -28,7 +28,7 @@ const DEFAULT_CREATE_HASH_OPTIONS = {
 /**
  * Creates a hash of the given message using the specified algorithm and encoding
  * @param message - The message to hash
- * @param options - The options to use for computing the hash @default @see {@link DEFAULT_CREATE_HASH_OPTIONS}
+ * @param options - The options to use for computing the hash @default @see 'sha256'
  * @returns The hash of the message
  */
 export function createHash(message: BinaryLike, options?: Partial<CreateHashOptions>): string {

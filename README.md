@@ -25,6 +25,8 @@ import { parseNumber } from '@atej/utils'
   take incoming request's Cloudflare properties as an argument (server-only)
 - [`@atej/utils/crypto`](https://jsr.io/@atej/utils/doc#crypto): Cryptographic utilities that depend
   on `node:crypto` (server-only)
+- [`@atej/utils/crypto/client`](https://jsr.io/@atej/utils/doc#crypto/client): Cryptographic
+  utilities that use the Web Crypto API (browser-only)
 - [`@atej/utils/messaging`](https://jsr.io/@atej/utils/doc#messaging): Utilities for sending emails
   and WhatsApp messages (server-only)
 - [`@atej/utils/razorpay`](https://jsr.io/@atej/utils/doc#razorpay): Utilities for Razorpay payment

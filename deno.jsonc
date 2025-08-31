@@ -1,10 +1,11 @@
 {
   "name": "@atej/utils",
-  "version": "0.13.1",
+  "version": "0.14.0",
   "license": "MIT",
   "exports": {
     ".": "./src/mod.ts",
     "./crypto": "./src/utils/crypto/mod.ts",
+    "./crypto/client": "./src/utils/crypto/client/mod.ts",
     "./cloudflare": "./src/utils/cloudflare/mod.ts",
     "./messaging": "./src/utils/messaging/mod.ts",
     "./razorpay": "./src/utils/payments/razorpay/mod.ts",
